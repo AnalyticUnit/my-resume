@@ -8,9 +8,10 @@
 </head>
 <body>
     <div class="resume-wrapper">
-        <!-- Левая панель -->
+        <!-- ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) -->
         <aside class="sidebar">
             <div class="profile-section">
+                <!-- Убедитесь, что файл называется photo.jpg -->
                 <img src="photo.jpg" alt="Смирнова Ирина" class="photo">
                 <h1>Смирнова Ирина</h1>
                 <p class="tagline">Системный аналитик (Industrial Data / BI)</p>
@@ -33,18 +34,19 @@
                     <span>SQL (MySQL)</span>
                     <span>Python</span>
                     <span>SCADA</span>
-                    <span>BI-аналитика</span>
                     <span>Matlab</span>
+                    <span>Docker</span>
+                    <span>Linux</span>
                 </div>
             </section>
         </aside>
 
-        <!-- Основная панель -->
+        <!-- ОСНОВНАЯ ПАНЕЛЬ -->
         <main class="main-content">
-            <!-- Кнопки переключения -->
+            <!-- Переключатель вкладок -->
             <nav class="tabs-nav">
                 <button class="tab-btn active" onclick="openTab(event, 'exp')">Опыт</button>
-                <button class="tab-btn" onclick="openTab(event, 'skills')">Навыки & IT</button>
+                <button class="tab-btn" onclick="openTab(event, 'skills')">Навыки</button>
                 <button class="tab-btn" onclick="openTab(event, 'edu')">Образование</button>
             </nav>
 
@@ -57,40 +59,75 @@
                     </div>
                     <p class="company">ЭКРА</p>
                     <ul>
-                        <li><strong>Внедрение BI:</strong> Развернула Apache Superset, настроила дашборды мониторинга ресурсов в реальном времени.</li>
-                        <li><strong>Алгоритмы:</strong> Проектировала логику диаграмм (Sankey, Heatmap, Speedometer) для ПО EKRASCADA.</li>
-                        <li><strong>Python:</strong> Разработка тестовых приложений для проверки математических моделей.</li>
+                        <li><strong>Внедрение BI:</strong> Самостоятельно развернула Apache Superset, настроила дашборды для мониторинга ресурсов в реальном времени.</li>
+                        <li><strong>Алгоритмы & ТЗ:</strong> Проектировала логику диаграмм Санкей, тепловых карт и спидометров для ПО EKRASCADA.</li>
+                        <li><strong>Прототипирование:</strong> Создавала приложения на Python для проверки математических моделей.</li>
                     </ul>
                 </div>
 
                 <div class="experience-item">
                     <div class="exp-header">
-                        <h3>Инженер 3 категории / Инженер</h3>
-                        <span>2020 — 2024</span>
+                        <h3>Инженер продуктового направления 3 кат.</h3>
+                        <span>2022 — 2024</span>
                     </div>
                     <p class="company">ЭКРА</p>
                     <ul>
-                        <li>Разработка ТЗ на доработку ПО и создание сложных блок-схем.</li>
-                        <li>Участие в НИОКР: работа в Matlab Simulink, создание алгоритмов для систем накопления энергии.</li>
+                        <li>Разработка ТЗ на доработку ПО, создание сложных блок-схем и формул для IT-отдела.</li>
+                        <li>Участие в ОКР: разработка проектной и эксплуатационной документации.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <h3>Инженер / Техник</h3>
+                        <span>2019 — 2022</span>
+                    </div>
+                    <p class="company">ЭКРА</p>
+                    <ul>
+                        <li>Работа в Matlab Simulink, разработка алгоритмов для систем накопления энергии.</li>
+                        <li>Проведение маркетинговых и научных исследований рынка микропроцессорных устройств.</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- ВКЛАДКА 2: НАВЫКИ -->
+            <!-- ВКЛАДКА 2: НАВЫКИ (СО ШКАЛАМИ) -->
             <div id="skills" class="tab-content fade-in">
-                <h2>Hard Skills</h2>
-                <div class="skills-grid">
+                <h2>Технические компетенции</h2>
+                
+                <div class="progress-container">
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>BI & Визуализация (Superset, Power BI)</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>SQL (MySQL, сложные выборки)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Python (Моделирование, Автоматизация)</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="skills-grid" style="margin-top: 40px;">
                     <div class="skill-card">
-                        <h4>Аналитика</h4>
-                        <p>SQL (сложные запросы), Apache Superset, Power BI, визуализация данных.</p>
+                        <h4>Инструментарий</h4>
+                        <p>Docker, Linux, Git, Matlab Simulink, MS Excel (Expert).</p>
                     </div>
                     <div class="skill-card">
-                        <h4>Разработка</h4>
-                        <p>Python (моделирование, автоматизация), HTML/CSS, Docker, Linux.</p>
-                    </div>
-                    <div class="skill-card">
-                        <h4>Доменная область</h4>
-                        <p>Протоколы связи, АСКУЭ, системы накопления электроэнергии, SCADA.</p>
+                        <h4>Проектирование</h4>
+                        <p>SCADA системы, разработка ТЗ по ГОСТ, проектирование систем учета ресурсов.</p>
                     </div>
                 </div>
             </div>
@@ -98,22 +135,32 @@
             <!-- ВКЛАДКА 3: ОБРАЗОВАНИЕ -->
             <div id="edu" class="tab-content fade-in">
                 <div class="experience-item">
-                    <h3>Магистр | Цифровые энергосистемы</h3>
-                    <p>Чувашский ГУ им. И.Н. Ульянова, 2022</p>
+                    <div class="exp-header">
+                        <h3>Магистр | Цифровые энергосистемы</h3>
+                        <span>2022</span>
+                    </div>
+                    <p class="company">Чувашский ГУ им. И.Н. Ульянова</p>
+                    <p>Электроэнергетический факультет.</p>
                 </div>
+                
                 <div class="experience-item">
-                    <h3>Бакалавр | Электроснабжение</h3>
-                    <p>Чувашский ГУ им. И.Н. Ульянова, 2020</p>
+                    <div class="exp-header">
+                        <h3>Бакалавр | Электроснабжение (Инженер)</h3>
+                        <span>2020</span>
+                    </div>
+                    <p class="company">Чувашский ГУ им. И.Н. Ульянова</p>
                 </div>
+
                 <div class="experience-item">
-                    <h3>Языки</h3>
-                    <p>Английский — B2 (Upper-Intermediate)</p>
+                    <h3>Знание языков</h3>
+                    <p><strong>Русский:</strong> Родной</p>
+                    <p><strong>Английский:</strong> B2 (Upper-Intermediate)</p>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Скрипт для вкладок -->
+    <!-- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК -->
     <script>
     function openTab(evt, tabName) {
         var i, tabcontent, tablinks;
