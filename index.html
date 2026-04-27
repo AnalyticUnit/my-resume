@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Резюме | Смирнова Ирина</title>
+    <title>Резюме | Смирнова Ирина (Industrial Data / BI)</title>
 </head>
 <body>
     <div class="scroll-container">
-        <!-- СТРАНИЦА 1 -->
+        <!-- СТРАНИЦА 1: ПРОФИЛЬ И ОПЫТ -->
         <section class="page-section">
             <div class="resume-wrapper">
                 <aside class="sidebar">
@@ -17,29 +17,53 @@
                         <h1>Смирнова Ирина</h1>
                         <p class="tagline">Системный аналитик (Industrial Data / BI)</p>
                     </div>
+                    
                     <section class="sidebar-block">
                         <h3>Контакты</h3>
                         <ul class="contact-list">
                             <li>📍 Чебоксары</li>
-                            <li>✉️ <a href="mailto:irinanevskaya13@gmail.com">Email</a></li>
+                            <li>✉️ <a href="mailto:irinanevskaya13@gmail.com">irinanevskaya13@gmail.com</a></li>
+                            <li>📞 +7 902 359-77-87</li>
                             <li>🔗 <a href="https://t.me">Telegram</a></li>
                         </ul>
+                    </section>
+
+                    <section class="sidebar-block">
+                        <h3>Hard Stack</h3>
+                        <div class="mini-tags">
+                            <span>Apache Superset</span>
+                            <span>SQL/MySQL</span>
+                            <span>Python</span>
+                            <span>Matlab</span>
+                            <span>SCADA</span>
+                            <span>Docker</span>
+                        </div>
                     </section>
                 </aside>
 
                 <main class="main-content">
                     <nav class="tabs-nav">
-                        <button class="tab-btn active" onclick="openTab(event, 'exp')">Опыт</button>
-                        <button class="tab-btn" onclick="openTab(event, 'skills')">Навыки</button>
+                        <button class="tab-btn active" onclick="openTab(event, 'exp')">Опыт работы</button>
+                        <button class="tab-btn" onclick="openTab(event, 'skills')">Компетенции</button>
+                        <button class="tab-btn" onclick="openTab(event, 'edu')">Образование</button>
                     </nav>
 
                     <div id="exp" class="tab-content active-content fade-in">
                         <div class="experience-item">
-                            <div class="exp-header"><h3>Инженер 2 кат.</h3><span>2024 — Наст. время</span></div>
+                            <div class="exp-header"><h3>Инженер продуктового направления 2 кат.</h3><span>2024 — Наст. время</span></div>
                             <p class="company">ЭКРА</p>
                             <ul>
-                                <li>Развертывание Apache Superset и настройка дашбордов.</li>
-                                <li>Проектирование алгоритмов визуализации данных.</li>
+                                <li><strong>Внедрение BI:</strong> развернула Apache Superset, настроила дашборды для мониторинга ресурсов (тепло, газ, вода, э/э) в реальном времени.</li>
+                                <li><strong>Разработка алгоритмов:</strong> проектирование логики гистограмм, диаграмм Санкей, тепловых карт и "умных" осей для ПО EKRASCADA.</li>
+                                <li><strong>Прототипирование:</strong> создание Python-приложений для верификации мат. моделей перед внедрением.</li>
+                            </ul>
+                        </div>
+                        <div class="experience-item">
+                            <div class="exp-header"><h3>Инженер 3 кат. / Инженер</h3><span>2020 — 2024</span></div>
+                            <p class="company">ЭКРА</p>
+                            <ul>
+                                <li>Разработка сложных ТЗ по визуализации данных для IT-отдела.</li>
+                                <li>Участие в НИОКР: работа в Matlab Simulink, создание алгоритмов для систем накопления энергии.</li>
                             </ul>
                         </div>
                     </div>
@@ -47,34 +71,58 @@
                     <div id="skills" class="tab-content fade-in">
                         <div class="progress-container">
                             <div class="progress-item">
-                                <div class="progress-info"><span>BI & Визуализация</span><span>90%</span></div>
+                                <div class="progress-info"><span>BI-аналитика (Superset, Power BI)</span><span>90%</span></div>
                                 <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
                             </div>
                             <div class="progress-item">
-                                <div class="progress-info"><span>SQL & Python</span><span>85%</span></div>
+                                <div class="progress-info"><span>SQL (MySQL, сложные выборки)</span><span>85%</span></div>
                                 <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
                             </div>
                         </div>
+                        <div class="skills-grid" style="margin-top: 25px;">
+                            <div class="skill-card-mini"><strong>Data Viz:</strong> Sankey, Box Zoom, Heatmaps</div>
+                            <div class="skill-card-mini"><strong>DevOps:</strong> Docker, Linux, Git</div>
+                        </div>
                     </div>
-                    <div class="scroll-hint">Листайте вниз к Soft Skills ↓</div>
+
+                    <div id="edu" class="tab-content fade-in">
+                        <div class="experience-item">
+                            <p><strong>Магистр:</strong> Цифровые энергосистемы (ЧГУ), 2022</p>
+                            <p><strong>Бакалавр:</strong> Электроснабжение (ЧГУ), 2020</p>
+                            <p><strong>Язык:</strong> Английский (B2 — Upper-Intermediate)</p>
+                        </div>
+                    </div>
+                    <div class="scroll-hint">Листайте вниз к детальным навыкам ↓</div>
                 </main>
             </div>
         </section>
 
-        <!-- СТРАНИЦА 2 -->
+        <!-- СТРАНИЦА 2: ДЕТАЛЬНЫЙ АНАЛИЗ НАВЫКОВ -->
         <section class="page-section">
             <div class="resume-wrapper second-page">
+                <h2 class="page-title">Профессиональный профиль</h2>
                 <div class="skills-detailed">
                     <div class="skills-column">
-                        <h2>Hard Skills</h2>
-                        <div class="detail-card"><strong>Аналитика:</strong> Apache Superset, Sankey, Heatmaps.</div>
-                        <div class="detail-card"><strong>Данные:</strong> SQL (сложные запросы), Python (математические модели).</div>
+                        <h3>Hard Skills & Expertise</h3>
+                        <div class="detail-card">
+                            <strong>Аналитика и визуализация:</strong>
+                            Apache Superset (развертывание, настройка), отрисовка специфических диаграмм (спидометры, тепловые карты, динамическое масштабирование).
+                        </div>
+                        <div class="detail-card">
+                            <strong>Доменная экспертиза:</strong>
+                            Электроэнергетика, системы накопления энергии, SCADA, протоколы связи, АСКУЭ.
+                        </div>
+                        <div class="detail-card">
+                            <strong>Работа с данными:</strong>
+                            SQL (сложные запросы), Python (математические модели, автоматизация расчетов).
+                        </div>
                     </div>
                     <div class="skills-column">
-                        <h2>Soft Skills</h2>
-                        <div class="soft-card"><strong>Self-management:</strong> Высокая автономность и дисциплина.</div>
-                        <div class="soft-card"><strong>Адаптивность:</strong> Быстрое самостоятельное освоение стека.</div>
-                        <div class="soft-card"><strong>Системность:</strong> Перевод бизнеса на язык алгоритмов.</div>
+                        <h3>Soft Skills</h3>
+                        <div class="soft-card"><strong>Self-management:</strong> Высокая автономность и дисциплина в удаленном формате.</div>
+                        <div class="soft-card"><strong>Адаптивность:</strong> Способность самостоятельно изучать и внедрять новый стек (Superset, SQL).</div>
+                        <div class="soft-card"><strong>Системное мышление:</strong> Сбор требований и перевод бизнес-задач на язык алгоритмов.</div>
+                        <div class="soft-card"><strong>Документация:</strong> Глубокий опыт разработки ТЗ по ГОСТ, исключающих двоякое толкование.</div>
                     </div>
                 </div>
             </div>
