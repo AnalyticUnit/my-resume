@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- Иконка вкладки 📊 -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='80' font-size='80'>📊</text></svg>">
     <title>AnalyticUnit | Смирнова Ирина</title>
 </head>
@@ -13,7 +12,6 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <!-- ТОЧКИ ПРОКРУТКИ -->
     <div class="scroll-nav">
         <div class="nav-arrow up" id="upArrow" onclick="scrollToPage(0)">↑</div>
         <div class="nav-dot active" onclick="scrollToPage(0)"></div>
@@ -31,7 +29,6 @@
                         <h1>Смирнова Ирина</h1>
                         <p class="tagline">Системный аналитик<br>(Industrial Data / BI)</p>
                     </div>
-
                     <section class="sidebar-block">
                         <h3>Контакты</h3>
                         <ul class="contact-list">
@@ -41,15 +38,10 @@
                             <li>🔗 <a href="https://t.me">Telegram</a></li>
                         </ul>
                     </section>
-
                     <section class="sidebar-block">
                         <h3>Hard Stack</h3>
                         <div class="mini-tags">
-                            <span>Apache Superset</span>
-                            <span>SQL/MySQL</span>
-                            <span>Python</span>
-                            <span>Matlab</span>
-                            <span>SCADA</span>
+                            <span>Apache Superset</span><span>SQL/MySQL</span><span>Python</span><span>Matlab</span><span>SCADA</span>
                         </div>
                     </section>
                 </aside>
@@ -61,6 +53,7 @@
                         <button class="tab-btn" onclick="openTab(event, 'edu')">Образование</button>
                     </nav>
 
+                    <!-- ОПЫТ (Активна по умолчанию) -->
                     <div id="exp" class="tab-content active-content fade-in">
                         <div class="experience-item">
                             <div class="exp-header"><h3 class="accent-title">Инженер продуктового направления 2 кат.</h3><span>2024 — Наст. время</span></div>
@@ -72,7 +65,7 @@
                         </div>
                     </div>
 
-                    <!-- ВОССТАНОВЛЕННАЯ ВКЛАДКА НАВЫКИ -->
+                    <!-- НАВЫКИ (Скрыта) -->
                     <div id="skills" class="tab-content fade-in">
                         <div class="circular-skills-container">
                             <div class="skill-circle-item">
@@ -99,6 +92,7 @@
                         </div>
                     </div>
 
+                    <!-- ОБРАЗОВАНИЕ (Скрыта) -->
                     <div id="edu" class="tab-content fade-in">
                         <div class="experience-item" style="color: white;">
                             <p><strong>Магистр:</strong> Цифровые энергосистемы (ЧГУ), 2022</p>
@@ -136,40 +130,51 @@
         const dots = document.querySelectorAll('.nav-dot');
         const upArrow = document.getElementById('upArrow');
         const downArrow = document.getElementById('downArrow');
+        let isAnimating = false;
 
+        // ИСПРАВЛЕННАЯ ЛОГИКА ВКЛАДОК
         function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) { tablinks[i].classList.remove("active"); }
-            document.getElementById(tabName).style.display = "block";
+            const contents = document.querySelectorAll(".tab-content");
+            contents.forEach(content => {
+                content.style.display = "none";
+                content.classList.remove("active-content");
+            });
+
+            const buttons = document.querySelectorAll(".tab-btn");
+            buttons.forEach(btn => btn.classList.remove("active"));
+
+            const selectedTab = document.getElementById(tabName);
+            selectedTab.style.display = "block";
+            setTimeout(() => selectedTab.classList.add("active-content"), 10);
+            
             evt.currentTarget.classList.add("active");
         }
 
         function scrollToPage(pageIndex) {
-            const height = scrollContainer.clientHeight;
-            scrollContainer.scrollTo({ top: pageIndex * height, behavior: 'smooth' });
+            isAnimating = true;
+            scrollContainer.scrollTo({ top: pageIndex * scrollContainer.clientHeight, behavior: 'smooth' });
+            setTimeout(() => { isAnimating = false; }, 800);
         }
+
+        scrollContainer.addEventListener('wheel', (e) => {
+            if (isAnimating) return;
+            e.preventDefault();
+            const currentPage = Math.round(scrollContainer.scrollTop / scrollContainer.clientHeight);
+            if (e.deltaY > 0 && currentPage < 1) scrollToPage(1);
+            else if (e.deltaY < 0 && currentPage > 0) scrollToPage(0);
+        }, { passive: false });
 
         scrollContainer.addEventListener('scroll', () => {
             const scrollTop = scrollContainer.scrollTop;
             const height = scrollContainer.scrollHeight - scrollContainer.clientHeight;
-            const scrolled = (scrollTop / height) * 100;
-            progressBar.style.width = scrolled + "%";
+            progressBar.style.width = (scrollTop / height * 100) + "%";
             const currentPage = Math.round(scrollTop / scrollContainer.clientHeight);
-            dots.forEach((dot, index) => {
-                if (index === currentPage) dot.classList.add('active');
-                else dot.classList.remove('active');
-            });
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentPage));
+            
             if (currentPage === 0) {
-                upArrow.style.opacity = "0"; upArrow.style.pointerEvents = "none";
-                downArrow.style.opacity = "1"; downArrow.style.pointerEvents = "auto";
-                downArrow.classList.add('blink');
+                upArrow.style.opacity = "0"; downArrow.style.opacity = "1";
             } else {
-                upArrow.style.opacity = "1"; upArrow.style.pointerEvents = "auto";
-                downArrow.style.opacity = "0"; downArrow.style.pointerEvents = "none";
-                downArrow.classList.remove('blink');
+                upArrow.style.opacity = "1"; downArrow.style.opacity = "0";
             }
         });
 
