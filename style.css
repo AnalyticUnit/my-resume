@@ -1,17 +1,48 @@
+:root {
+    --primary-color: #2c3e50; /* Глубокий синий */
+    --accent-color: #e67e22;  /* Акцентный оранжевый (энергетика) */
+    --text-color: #34495e;
+    --bg-color: #ecf0f1;
+    --sidebar-bg: #ffffff;
+}
+
+* { box-sizing: border-box; }
 body {
-    background: #f0f2f5;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0; padding: 20px;
 }
-.card {
+
+.resume-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
     background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
-h1 { color: #2d3436; }
+
+.sidebar { background: var(--sidebar-bg); padding: 30px; border-right: 1px solid #eee; }
+.photo { width: 100%; border-radius: 8px; margin-bottom: 20px; filter: grayscale(20%); }
+.sidebar h1 { font-size: 20px; margin-bottom: 5px; color: var(--primary-color); line-height: 1.2; }
+.tagline { color: var(--accent-color); font-size: 14px; font-weight: bold; margin-bottom: 30px; }
+
+.main-content { padding: 40px; }
+h2 { border-left: 4px solid var(--accent-color); padding-left: 15px; color: var(--primary-color); font-size: 18px; margin-top: 30px; }
+h3 { margin: 0; font-size: 16px; }
+
+.experience-item { margin-bottom: 25px; }
+.exp-header { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.exp-header span { font-size: 12px; color: #7f8c8d; }
+.company { color: var(--accent-color); font-weight: 600; margin: 0 0 10px 0; }
+
+ul { padding-left: 20px; margin-top: 5px; }
+li { margin-bottom: 5px; }
+a { color: inherit; text-decoration: none; border-bottom: 1px solid #ccc; }
+
+@media (max-width: 768px) {
+    .resume-wrapper { grid-template-columns: 1fr; }
+    .sidebar { text-align: center; }
+}
