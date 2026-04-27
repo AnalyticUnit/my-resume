@@ -19,26 +19,28 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
     box-shadow: 0 0 10px rgba(212, 165, 165, 0.5); transition: width 0.1s ease-out;
 }
 
-/* ОБНОВЛЕННЫЙ КОМПАКТНЫЙ КУРСОР */
+/* ИСПРАВЛЕННЫЙ СИНХРОННЫЙ КУРСОР */
 @media (min-width: 1000px) {
     html, body, a, button { cursor: none !important; }
     .cursor-dot, .cursor-outline {
         position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
         border-radius: 50%; z-index: 9999; pointer-events: none;
+        /* Убираем transition для координат, чтобы не было задержки */
+        transition: transform 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
     }
     .cursor-dot { 
         width: 6px; height: 6px; 
         background-color: var(--primary); 
     }
     .cursor-outline {
-        width: 18px; /* Уменьшенный размер */
+        width: 18px; 
         height: 18px; 
         border: 1px solid var(--accent);
         background-color: rgba(212, 165, 165, 0.05);
-        transition: left 0.1s ease-out, top 0.1s ease-out, transform 0.3s ease;
     }
+    /* Эффект увеличения оставляем плавным */
     .cursor-hover { 
-        transform: translate(-50%, -50%) scale(1.4); /* Умеренное увеличение */
+        transform: translate(-50%, -50%) scale(1.4); 
         background-color: rgba(212, 165, 165, 0.15); 
     }
 }
