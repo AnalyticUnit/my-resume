@@ -2,23 +2,17 @@
     --primary: #4a3f3f;
     --accent: #d4a5a5;
     --accent-soft: #f3e1e1;
-    --bg-light: #f0f2f5;
+    --bg-site: #f0f2f5;
     --white: #ffffff;
 }
 
 * { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Segoe UI', sans-serif; }
 
-html, body {
-    margin: 0; padding: 0;
-    height: 100%;
-    overflow: hidden; /* Отключаем обычный скролл */
-}
-
-/* Контейнер для прокрутки по страницам */
 .scroll-container {
     height: 100vh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory; /* Включаем "прилипание" */
+    scroll-snap-type: y mandatory;
 }
 
 .page-section {
@@ -26,71 +20,49 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    scroll-snap-align: start; /* Секция всегда встает в начало экрана */
+    scroll-snap-align: start;
     padding: 20px;
+    background-color: var(--bg-site);
 }
 
-.bg-alt { background-color: var(--bg-light); }
-
 .resume-wrapper {
-    max-width: 1100px; width: 100%;
+    max-width: 1100px; width: 100%; height: 650px;
     background: var(--white);
     display: grid;
     grid-template-columns: 300px 1fr;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
     overflow: hidden;
 }
 
-.no-sidebar { display: block; padding: 60px; }
+.second-page { display: block; padding: 50px; }
 
-/* SIDEBAR Стили */
-.sidebar { padding: 40px; border-right: 1px solid #eee; }
-.photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-soft); }
+/* SIDEBAR & PHOTO */
+.sidebar { padding: 40px; border-right: 1px solid #f0f0f0; background: #fff; text-align: center; }
+.photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 5px solid var(--accent-soft); margin-bottom: 20px; }
 .tagline { color: var(--accent); font-weight: bold; font-size: 12px; text-transform: uppercase; }
 
-/* КОНТЕНТ */
-.main-content { padding: 40px 60px; position: relative; }
-.experience-item { margin-bottom: 25px; }
-.exp-header { display: flex; justify-content: space-between; font-size: 14px; }
-.company { color: var(--accent); font-weight: bold; }
+/* ТАБЫ (ВАШ ЛЮБИМЫЙ ДИЗАЙН) */
+.main-content { padding: 40px 50px; position: relative; }
+.tabs-nav { display: inline-flex; gap: 5px; padding: 5px; background: #f1f5f9; border-radius: 12px; margin-bottom: 30px; }
+.tab-btn { border: none; padding: 8px 20px; cursor: pointer; border-radius: 8px; font-weight: 600; color: #64748b; background: none; transition: 0.3s; }
+.tab-btn.active { background: #fff; color: var(--accent); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-/* ВТОРАЯ СТРАНИЦА (НАВЫКИ) */
-.skills-full-page {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-}
+/* ШКАЛЫ */
+.progress-bar { width: 100%; height: 8px; background: #eee; border-radius: 10px; margin: 10px 0 20px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--accent); animation: grow 1.5s ease-out; }
+@keyframes grow { from { width: 0; } }
 
-.skill-card-alt {
-    margin-bottom: 25px;
-    padding-left: 15px;
-    border-left: 3px solid var(--accent);
-}
+/* ВТОРАЯ СТРАНИЦА */
+.skills-detailed { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.detail-card, .soft-card { background: var(--bg-site); padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid var(--accent); font-size: 14px; }
 
-.skill-card-alt h4 { margin: 0 0 5px 0; color: var(--primary); }
+.tab-content { display: none; }
+.active-content { display: block; }
+.fade-in { animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.soft-skill-item {
-    background: var(--bg-light);
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    font-size: 14px;
-}
+.scroll-hint { position: absolute; bottom: 20px; color: var(--accent); font-size: 12px; animation: bounce 2s infinite; }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
-.scroll-hint {
-    position: absolute; bottom: 20px; right: 40px;
-    font-size: 12px; color: var(--accent);
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-5px);}
-    60% {transform: translateY(-3px);}
-}
-
-@media (max-width: 800px) {
-    .resume-wrapper { grid-template-columns: 1fr; }
-    .skills-full-page { grid-template-columns: 1fr; }
-}
+@media (max-width: 800px) { .resume-wrapper { grid-template-columns: 1fr; height: auto; } .page-section { height: auto; } .scroll-container { overflow-y: auto; scroll-snap-type: none; } }
