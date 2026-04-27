@@ -7,176 +7,85 @@
     <title>Резюме | Смирнова Ирина</title>
 </head>
 <body>
-    <div class="resume-wrapper">
-        <!-- ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) -->
-        <aside class="sidebar">
-            <div class="profile-section">
-                <!-- Убедитесь, что файл называется photo.jpg -->
-                <img src="photo.jpg" alt="Смирнова Ирина" class="photo">
-                <h1>Смирнова Ирина</h1>
-                <p class="tagline">Системный аналитик (Industrial Data / BI)</p>
+    <div class="scroll-container">
+        <!-- СТРАНИЦА 1: ГЛАВНАЯ И ОПЫТ -->
+        <section class="page-section">
+            <div class="resume-wrapper">
+                <aside class="sidebar">
+                    <div class="profile-section">
+                        <img src="photo.jpg" alt="Смирнова Ирина" class="photo">
+                        <h1>Смирнова Ирина</h1>
+                        <p class="tagline">Системный аналитик (Industrial Data / BI)</p>
+                    </div>
+                    <section class="sidebar-block">
+                        <h3>Контакты</h3>
+                        <ul>
+                            <li>📍 Чебоксары</li>
+                            <li>📞 +7 902 359-77-87</li>
+                            <li>✉️ <a href="mailto:irinanevskaya13@gmail.com">Email</a></li>
+                        </ul>
+                    </section>
+                </aside>
+                <main class="main-content">
+                    <h2>Опыт работы</h2>
+                    <div class="experience-item">
+                        <div class="exp-header"><h3>Инженер продуктового направления 2 кат.</h3><span>2024 — Наст. время</span></div>
+                        <p class="company">ЭКРА</p>
+                        <ul>
+                            <li>Внедрение BI: развертывание Apache Superset, настройка дашбордов.</li>
+                            <li>Проектирование алгоритмов визуализации для ПО EKRASCADA.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <div class="exp-header"><h3>Инженер продуктового направления 3 кат.</h3><span>2022 — 2024</span></div>
+                        <p class="company">ЭКРА</p>
+                        <ul>
+                            <li>Разработка ТЗ, создание блок-схем и формул для IT-отдела.</li>
+                        </ul>
+                    </div>
+                    <div class="scroll-hint">Листайте вниз ↓</div>
+                </main>
             </div>
-            
-            <section class="sidebar-block">
-                <h3>Контакты</h3>
-                <ul>
-                    <li>📍 Чебоксары</li>
-                    <li>📞 +7 902 359-77-87</li>
-                    <li>✉️ <a href="mailto:irinanevskaya13@gmail.com">Email</a></li>
-                    <li>🔗 <a href="https://t.me">Telegram</a></li>
-                </ul>
-            </section>
+        </section>
 
-            <section class="sidebar-block">
-                <h3>Ключевые навыки</h3>
-                <div class="mini-tags">
-                    <span>Apache Superset</span>
-                    <span>SQL (MySQL)</span>
-                    <span>Python</span>
-                    <span>SCADA</span>
-                    <span>Matlab</span>
-                    <span>Docker</span>
-                    <span>Linux</span>
-                </div>
-            </section>
-        </aside>
-
-        <!-- ОСНОВНАЯ ПАНЕЛЬ -->
-        <main class="main-content">
-            <!-- Переключатель вкладок -->
-            <nav class="tabs-nav">
-                <button class="tab-btn active" onclick="openTab(event, 'exp')">Опыт</button>
-                <button class="tab-btn" onclick="openTab(event, 'skills')">Навыки</button>
-                <button class="tab-btn" onclick="openTab(event, 'edu')">Образование</button>
-            </nav>
-
-            <!-- ВКЛАДКА 1: ОПЫТ -->
-            <div id="exp" class="tab-content active-content fade-in">
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <h3>Инженер продуктового направления 2 кат.</h3>
-                        <span>2024 — Наст. время</span>
-                    </div>
-                    <p class="company">ЭКРА</p>
-                    <ul>
-                        <li><strong>Внедрение BI:</strong> Самостоятельно развернула Apache Superset, настроила дашборды для мониторинга ресурсов в реальном времени.</li>
-                        <li><strong>Алгоритмы & ТЗ:</strong> Проектировала логику диаграмм Санкей, тепловых карт и спидометров для ПО EKRASCADA.</li>
-                        <li><strong>Прототипирование:</strong> Создавала приложения на Python для проверки математических моделей.</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <h3>Инженер продуктового направления 3 кат.</h3>
-                        <span>2022 — 2024</span>
-                    </div>
-                    <p class="company">ЭКРА</p>
-                    <ul>
-                        <li>Разработка ТЗ на доработку ПО, создание сложных блок-схем и формул для IT-отдела.</li>
-                        <li>Участие в ОКР: разработка проектной и эксплуатационной документации.</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <h3>Инженер / Техник</h3>
-                        <span>2019 — 2022</span>
-                    </div>
-                    <p class="company">ЭКРА</p>
-                    <ul>
-                        <li>Работа в Matlab Simulink, разработка алгоритмов для систем накопления энергии.</li>
-                        <li>Проведение маркетинговых и научных исследований рынка микропроцессорных устройств.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- ВКЛАДКА 2: НАВЫКИ (СО ШКАЛАМИ) -->
-            <div id="skills" class="tab-content fade-in">
-                <h2>Технические компетенции</h2>
-                
-                <div class="progress-container">
-                    <div class="progress-item">
-                        <div class="progress-info">
-                            <span>BI & Визуализация (Superset, Power BI)</span>
-                            <span>90%</span>
+        <!-- СТРАНИЦА 2: НАВЫКИ -->
+        <section class="page-section bg-alt">
+            <div class="resume-wrapper no-sidebar">
+                <div class="skills-full-page">
+                    <div class="skills-column">
+                        <h2>Hard Skills</h2>
+                        <div class="skill-card-alt">
+                            <h4>Аналитика и визуализация</h4>
+                            <p>Apache Superset (развертывание), создание сложных дашбордов (Sankey, Heatmap, Спидометры).</p>
                         </div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
-                    </div>
-
-                    <div class="progress-item">
-                        <div class="progress-info">
-                            <span>SQL (MySQL, сложные выборки)</span>
-                            <span>85%</span>
+                        <div class="skill-card-alt">
+                            <h4>Работа с данными</h4>
+                            <p>SQL (сложные запросы), Python (математические модели, автоматизация расчетов).</p>
                         </div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
-                    </div>
-
-                    <div class="progress-item">
-                        <div class="progress-info">
-                            <span>Python (Моделирование, Автоматизация)</span>
-                            <span>75%</span>
+                        <div class="skill-card-alt">
+                            <h4>Проектирование и Домен</h4>
+                            <p>ТЗ для SCADA-систем, АСКУЭ, Электроэнергетика, приборы учета.</p>
                         </div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
                     </div>
-                </div>
-
-                <div class="skills-grid" style="margin-top: 40px;">
-                    <div class="skill-card">
-                        <h4>Инструментарий</h4>
-                        <p>Docker, Linux, Git, Matlab Simulink, MS Excel (Expert).</p>
-                    </div>
-                    <div class="skill-card">
-                        <h4>Проектирование</h4>
-                        <p>SCADA системы, разработка ТЗ по ГОСТ, проектирование систем учета ресурсов.</p>
+                    
+                    <div class="skills-column">
+                        <h2>Soft Skills</h2>
+                        <div class="soft-skill-item">
+                            <strong>Self-management:</strong> Высокая автономность на удаленке, дисциплина дедлайнов.
+                        </div>
+                        <div class="soft-skill-item">
+                            <strong>Адаптивность:</strong> Быстрое самостоятельное освоение Superset, SQL, Python.
+                        </div>
+                        <div class="soft-skill-item">
+                            <strong>Системное мышление:</strong> Перевод бизнес-задач на язык алгоритмов.
+                        </div>
+                        <div class="soft-skill-item">
+                            <strong>Работа с документацией:</strong> Разработка ТЗ, исключающих двоякое толкование.
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- ВКЛАДКА 3: ОБРАЗОВАНИЕ -->
-            <div id="edu" class="tab-content fade-in">
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <h3>Магистр | Цифровые энергосистемы</h3>
-                        <span>2022</span>
-                    </div>
-                    <p class="company">Чувашский ГУ им. И.Н. Ульянова</p>
-                    <p>Электроэнергетический факультет.</p>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <h3>Бакалавр | Электроснабжение (Инженер)</h3>
-                        <span>2020</span>
-                    </div>
-                    <p class="company">Чувашский ГУ им. И.Н. Ульянова</p>
-                </div>
-
-                <div class="experience-item">
-                    <h3>Знание языков</h3>
-                    <p><strong>Русский:</strong> Родной</p>
-                    <p><strong>Английский:</strong> B2 (Upper-Intermediate)</p>
-                </div>
-            </div>
-        </main>
+        </section>
     </div>
-
-    <!-- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК -->
-    <script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-            tabcontent[i].classList.remove("active-content");
-        }
-        tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
-        }
-        document.getElementById(tabName).style.display = "block";
-        document.getElementById(tabName).classList.add("active-content");
-        evt.currentTarget.classList.add("active");
-    }
-    </script>
 </body>
 </html>
