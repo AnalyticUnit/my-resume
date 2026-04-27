@@ -1,17 +1,50 @@
 :root {
-    --primary: #f8fafc;      /* Светлый текст */
-    --accent: #38bdf8;       /* Электрик Блю (Неон) */
-    --bg-site: #0f172a;      /* Глубокая ночь для фона */
-    --white: #1e293b;        /* Темный сланец для карточек */
+    --primary: #f8fafc;
+    --accent: #38bdf8;
+    --bg-site: #0f172a;
+    --white: #1e293b;
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg-site); color: var(--primary); }
 
-/* ИНДИКАТОР И КУРСОР */
+/* ИНДИКАТОР ПРОГРЕССА */
 .scroll-progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 10000; }
-.scroll-progress-bar { height: 100%; background: var(--accent); width: 0%; box-shadow: 0 0 15px var(--accent); transition: width 0.1s; }
+.scroll-progress-bar { height: 100%; background: var(--accent); width: 0%; transition: width 0.1s; }
 
+/* ТОЧКИ НАВИГАЦИИ (НА КАРТОЧКЕ) */
+.scroll-nav {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.nav-dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.nav-dot:hover {
+    background: var(--accent);
+}
+
+.nav-dot.active {
+    background: var(--accent);
+    transform: scale(1.5); /* "Жирное" выделение через размер */
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* КУРСОР */
 @media (min-width: 1000px) {
     html, body, a, button { cursor: none !important; }
     .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; }
@@ -33,11 +66,7 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
 
 /* САЙДБАР */
 .sidebar { padding: 50px 40px; border-right: 1px solid rgba(255,255,255,0.05); text-align: center; background: #111827; }
-.photo { 
-    width: 180px; height: 180px; border-radius: 50%; object-fit: cover; 
-    border: 4px solid var(--accent); margin-bottom: 25px; transition: 0.4s; 
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-}
+.photo { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent); margin-bottom: 25px; transition: 0.4s; box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
 .photo:hover { transform: scale(1.08); box-shadow: 0 0 30px var(--accent); }
 .tagline { color: var(--accent); font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 25px; line-height: 1.4; letter-spacing: 1px; }
 
@@ -55,23 +84,14 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
 .accent-title { color: var(--accent) !important; font-weight: 700; }
 .accent-title-page { color: var(--accent); font-size: 24px; margin-bottom: 30px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
 
-/* КРУГИ НАВЫКОВ — ЧИСТЫЙ ВИД БЕЗ ТЕНЕЙ */
+/* КРУГИ */
 .circular-skills-container { display: flex; justify-content: space-around; gap: 20px; margin-top: 30px; }
 .skill-circle-item { text-align: center; width: 160px; display: flex; flex-direction: column; align-items: center; }
 .skill-label { font-size: 14px; font-weight: 600; margin-top: 20px; color: #94a3b8; line-height: 1.4; }
-
 .progress-circle { position: relative; width: 110px; height: 110px; }
 .progress-circle svg { width: 110px; height: 110px; transform: rotate(-90deg); }
 .progress-circle circle { fill: none; stroke-width: 7; stroke: rgba(255, 255, 255, 0.05); stroke-linecap: round; }
-
-.progress-circle circle.percent-fill { 
-    stroke: var(--accent); 
-    stroke-width: 8; 
-    stroke-dasharray: 314; 
-    stroke-dashoffset: calc(314 - (314 * var(--percent)) / 100); 
-    animation: grow 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; 
-    filter: none !important; /* УДАЛЯЕМ ГРЯЗНЫЕ ТЕНИ */
-}
+.progress-circle circle.percent-fill { stroke: var(--accent); stroke-width: 8; stroke-dasharray: 314; stroke-dashoffset: calc(314 - (314 * var(--percent)) / 100); animation: grow 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 @keyframes grow { from { stroke-dashoffset: 314; } }
 .progress-circle .number { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; font-size: 22px; font-weight: 800; color: #ffffff; }
 
@@ -84,7 +104,5 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
 .fade-in { animation: fadeIn 0.5s ease-out forwards; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } }
 
-.scroll-hint { position: absolute; bottom: 30px; color: var(--accent); font-size: 13px; animation: bounce 2s infinite; font-weight: bold; }
-@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-
+@media (max-width: 1250px) { .scroll-nav { display: none; } } /* Скрываем точки, если экран слишком узкий */
 @media (max-width: 1000px) { .resume-wrapper { grid-template-columns: 1fr; height: auto; } .page-section { height: auto; } .scroll-container { overflow-y: auto; scroll-snap-type: none; } }
