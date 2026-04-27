@@ -7,30 +7,34 @@
     <!-- Иконка вкладки 📊 -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='80' font-size='80'>📊</text></svg>">
     
-    <!-- Подключение Mermaid.js для отрисовки схем -->
+    <!-- Подключение Mermaid.js с правильной инициализацией -->
     <script src="https://jsdelivr.net"></script>
     <script>
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'base',
-            themeVariables: {
-                'primaryColor': '#ffffff',
-                'primaryTextColor': '#2f3635',
-                'primaryBorderColor': '#7ba098',
-                'lineColor': '#7ba098',
-                'secondaryColor': '#e8f0ee',
-                'tertiaryColor': '#f8faf9'
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'base',
+                securityLevel: 'loose',
+                themeVariables: {
+                    'primaryColor': '#ffffff',
+                    'primaryTextColor': '#2f3635',
+                    'primaryBorderColor': '#7ba098',
+                    'lineColor': '#7ba098',
+                    'secondaryColor': '#e8f0ee',
+                    'tertiaryColor': '#f8faf9',
+                    'fontSize': '14px'
+                }
+            });
         });
     </script>
     
     <title>Резюме | Смирнова Ирина</title>
 </head>
 <body>
-    <!-- Прогресс скролла -->
+    <!-- Индикатор прокрутки -->
     <div class="scroll-progress-container"><div class="scroll-progress-bar"></div></div>
 
-    <!-- Курсор -->
+    <!-- Кастомный курсор -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
@@ -125,23 +129,23 @@
                         <div class="detail-card"><strong>BI Matrix:</strong> Apache Superset, Sankey, Heatmaps.</div>
                         <div class="detail-card"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ.</div>
                         
-                        <!-- Блок со схемой Mermaid -->
+                        <!-- Блок со схемой Mermaid (БЕЗ ОТСТУПОВ ВНУТРИ ТЕГА) -->
                         <div class="mermaid-block">
                             <h4>Data Pipeline Concept</h4>
-                            <pre class="mermaid">
-                            graph LR
-                                A[SCADA Data] -->|Raw| B(Python ETL)
-                                B -->|Processed| C[(SQL Database)]
-                                C -->|Query| D{Superset}
-                                D -->|Insights| E[Dashboard]
-                            </pre>
+                            <div class="mermaid">
+graph LR
+    A[SCADA Data] -->|Raw| B(Python ETL)
+    B -->|Processed| C[(SQL Database)]
+    C -->|Query| D{Superset}
+    D -->|Insights| E[Dashboard]
+                            </div>
                         </div>
                     </div>
                     <div class="skills-column">
                         <h3 class="accent-title-page">Soft Skills</h3>
                         <div class="soft-card"><strong>Self-management:</strong> Высокая автономность и дисциплина.</div>
                         <div class="soft-card"><strong>Адаптивность:</strong> Быстрое освоение нового стека.</div>
-                        <div class="soft-card"><strong>System Logic:</strong> Перевод бизнеса в алгоритмы.</div>
+                        <div class="soft-card"><strong>Logic:</strong> Перевод бизнеса в алгоритмы.</div>
                     </div>
                 </div>
             </div>
@@ -158,17 +162,22 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.classList.add("active");
         }
+
         const dot = document.querySelector('.cursor-dot');
         const outline = document.querySelector('.cursor-outline');
         window.addEventListener('mousemove', (e) => {
-            dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
-            outline.style.left = e.clientX + 'px'; outline.style.top = e.clientY + 'px';
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
+            outline.style.left = e.clientX + 'px';
+            outline.style.top = e.clientY + 'px';
         });
+
         const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card');
         links.forEach(el => {
             el.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
         });
+
         const progressBar = document.querySelector('.scroll-progress-bar');
         const scrollContainer = document.querySelector('.scroll-container');
         scrollContainer.addEventListener('scroll', () => {
