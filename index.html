@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-
+    <!-- Иконка вкладки 📊 -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='80' font-size='80'>📊</text></svg>">
     <title>AnalyticUnit | Смирнова Ирина</title>
 </head>
 <body>
@@ -31,7 +32,6 @@
                         <p class="tagline">Системный аналитик<br>(Industrial Data / BI)</p>
                     </div>
 
-                    <!-- КОНТАКТЫ -->
                     <section class="sidebar-block">
                         <h3>Контакты</h3>
                         <ul class="contact-list">
@@ -42,15 +42,14 @@
                         </ul>
                     </section>
 
-                    <!-- HARD STACK (ИЗ ИЗОБРАЖЕНИЯ) -->
                     <section class="sidebar-block">
                         <h3>Hard Stack</h3>
                         <div class="mini-tags">
-                            <span class="interactive-tag">Apache Superset</span>
-                            <span class="interactive-tag">SQL/MySQL</span>
-                            <span class="interactive-tag">Python</span>
-                            <span class="interactive-tag">Matlab</span>
-                            <span class="interactive-tag">SCADA</span>
+                            <span>Apache Superset</span>
+                            <span>SQL/MySQL</span>
+                            <span>Python</span>
+                            <span>Matlab</span>
+                            <span>SCADA</span>
                         </div>
                     </section>
                 </aside>
@@ -66,13 +65,14 @@
                         <div class="experience-item">
                             <div class="exp-header"><h3 class="accent-title">Инженер продуктового направления 2 кат.</h3><span>2024 — Наст. время</span></div>
                             <p class="company">ЭКРА</p>
-                            <ul class="white-list">
-                                <li>Развертывание <strong>Apache Superset</strong> и настройка BI-дашбордов.</li>
-                                <li>Проектирование алгоритмов визуализации данных (Sankey, Heatmap).</li>
+                            <ul>
+                                <li style="color: white; margin-bottom: 8px;">Развертывание <strong>Apache Superset</strong> и настройка BI-дашбордов.</li>
+                                <li style="color: white;">Проектирование алгоритмов визуализации данных (Sankey, Heatmap).</li>
                             </ul>
                         </div>
                     </div>
 
+                    <!-- ВОССТАНОВЛЕННАЯ ВКЛАДКА НАВЫКИ -->
                     <div id="skills" class="tab-content fade-in">
                         <div class="circular-skills-container">
                             <div class="skill-circle-item">
@@ -100,9 +100,9 @@
                     </div>
 
                     <div id="edu" class="tab-content fade-in">
-                        <div class="experience-item">
-                            <p style="color: white;"><strong>Магистр:</strong> Цифровые энергосистемы (ЧГУ), 2022</p>
-                            <p style="color: white;"><strong>Бакалавр:</strong> Электроснабжение (ЧГУ), 2020</p>
+                        <div class="experience-item" style="color: white;">
+                            <p><strong>Магистр:</strong> Цифровые энергосистемы (ЧГУ), 2022</p>
+                            <p><strong>Бакалавр:</strong> Электроснабжение (ЧГУ), 2020</p>
                         </div>
                     </div>
 
@@ -157,22 +157,18 @@
             const height = scrollContainer.scrollHeight - scrollContainer.clientHeight;
             const scrolled = (scrollTop / height) * 100;
             progressBar.style.width = scrolled + "%";
-
             const currentPage = Math.round(scrollTop / scrollContainer.clientHeight);
             dots.forEach((dot, index) => {
                 if (index === currentPage) dot.classList.add('active');
                 else dot.classList.remove('active');
             });
-
             if (currentPage === 0) {
-                upArrow.style.opacity = "0";
-                upArrow.style.pointerEvents = "none";
-                downArrow.style.opacity = "1";
+                upArrow.style.opacity = "0"; upArrow.style.pointerEvents = "none";
+                downArrow.style.opacity = "1"; downArrow.style.pointerEvents = "auto";
                 downArrow.classList.add('blink');
             } else {
-                upArrow.style.opacity = "1";
-                upArrow.style.pointerEvents = "auto";
-                downArrow.style.opacity = "0";
+                upArrow.style.opacity = "1"; upArrow.style.pointerEvents = "auto";
+                downArrow.style.opacity = "0"; downArrow.style.pointerEvents = "none";
                 downArrow.classList.remove('blink');
             }
         });
@@ -184,7 +180,7 @@
             outline.style.left = e.clientX + 'px'; outline.style.top = e.clientY + 'px';
         });
 
-        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card, .nav-dot, .nav-arrow, .contact-list li, .interactive-tag');
+        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card, .nav-dot, .nav-arrow, .contact-list li');
         links.forEach(el => {
             el.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
