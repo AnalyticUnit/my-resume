@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Резюме | Смирнова Ирина (Industrial Data / BI)</title>
+    <title>Резюме | Смирнова Ирина (AnalyticUnit)</title>
 </head>
 <body>
     <div class="scroll-container">
-        <!-- СТРАНИЦА 1: ПРОФИЛЬ И ОПЫТ -->
+        <!-- СТРАНИЦА 1 -->
         <section class="page-section">
             <div class="resume-wrapper">
                 <aside class="sidebar">
@@ -36,7 +36,6 @@
                             <span>Python</span>
                             <span>Matlab</span>
                             <span>SCADA</span>
-                            <span>Docker</span>
                         </div>
                     </section>
                 </aside>
@@ -44,18 +43,18 @@
                 <main class="main-content">
                     <nav class="tabs-nav">
                         <button class="tab-btn active" onclick="openTab(event, 'exp')">Опыт работы</button>
-                        <button class="tab-btn" onclick="openTab(event, 'skills')">Компетенции</button>
+                        <button class="tab-btn" onclick="openTab(event, 'skills')">Навыки</button>
                         <button class="tab-btn" onclick="openTab(event, 'edu')">Образование</button>
                     </nav>
 
+                    <!-- Вкладка: ОПЫТ -->
                     <div id="exp" class="tab-content active-content fade-in">
                         <div class="experience-item">
                             <div class="exp-header"><h3>Инженер продуктового направления 2 кат.</h3><span>2024 — Наст. время</span></div>
                             <p class="company">ЭКРА</p>
                             <ul>
-                                <li><strong>Внедрение BI:</strong> развернула Apache Superset, настроила дашборды для мониторинга ресурсов (тепло, газ, вода, э/э) в реальном времени.</li>
-                                <li><strong>Разработка алгоритмов:</strong> проектирование логики гистограмм, диаграмм Санкей, тепловых карт и "умных" осей для ПО EKRASCADA.</li>
-                                <li><strong>Прототипирование:</strong> создание Python-приложений для верификации мат. моделей перед внедрением.</li>
+                                <li><strong>Внедрение BI:</strong> развернула Apache Superset, настроила интеграцию данных из SCADA.</li>
+                                <li><strong>Алгоритмы:</strong> проектирование логики Sankey, Heatmap и "умных" осей для ПО EKRASCADA.</li>
                             </ul>
                         </div>
                         <div class="experience-item">
@@ -63,66 +62,65 @@
                             <p class="company">ЭКРА</p>
                             <ul>
                                 <li>Разработка сложных ТЗ по визуализации данных для IT-отдела.</li>
-                                <li>Участие в НИОКР: работа в Matlab Simulink, создание алгоритмов для систем накопления энергии.</li>
+                                <li>НИОКР: разработка алгоритмов в Matlab Simulink для систем накопления энергии.</li>
                             </ul>
                         </div>
                     </div>
 
+                    <!-- Вкладка: НАВЫКИ (КРУГЛЫЕ ШКАЛЫ) -->
                     <div id="skills" class="tab-content fade-in">
-                        <div class="progress-container">
-                            <div class="progress-item">
-                                <div class="progress-info"><span>BI-аналитика (Superset, Power BI)</span><span>90%</span></div>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                        <div class="circular-skills-container">
+                            <div class="skill-circle-item">
+                                <div class="progress-circle" style="--percent: 90;">
+                                    <svg><circle cx="50" cy="50" r="45"></circle><circle cx="50" cy="50" r="45" class="percent-fill"></circle></svg>
+                                    <div class="number"><h3>90<span>%</span></h3></div>
+                                </div>
+                                <p>BI & Viz</p>
                             </div>
-                            <div class="progress-item">
-                                <div class="progress-info"><span>SQL (MySQL, сложные выборки)</span><span>85%</span></div>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                            <div class="skill-circle-item">
+                                <div class="progress-circle" style="--percent: 85;">
+                                    <svg><circle cx="50" cy="50" r="45"></circle><circle cx="50" cy="50" r="45" class="percent-fill"></circle></svg>
+                                    <div class="number"><h3>85<span>%</span></h3></div>
+                                </div>
+                                <p>SQL</p>
                             </div>
-                        </div>
-                        <div class="skills-grid" style="margin-top: 25px;">
-                            <div class="skill-card-mini"><strong>Data Viz:</strong> Sankey, Box Zoom, Heatmaps</div>
-                            <div class="skill-card-mini"><strong>DevOps:</strong> Docker, Linux, Git</div>
+                            <div class="skill-circle-item">
+                                <div class="progress-circle" style="--percent: 70;">
+                                    <svg><circle cx="50" cy="50" r="45"></circle><circle cx="50" cy="50" r="45" class="percent-fill"></circle></svg>
+                                    <div class="number"><h3>70<span>%</span></h3></div>
+                                </div>
+                                <p>Python</p>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Вкладка: ОБРАЗОВАНИЕ -->
                     <div id="edu" class="tab-content fade-in">
                         <div class="experience-item">
                             <p><strong>Магистр:</strong> Цифровые энергосистемы (ЧГУ), 2022</p>
                             <p><strong>Бакалавр:</strong> Электроснабжение (ЧГУ), 2020</p>
-                            <p><strong>Язык:</strong> Английский (B2 — Upper-Intermediate)</p>
+                            <p><strong>English:</strong> B2 (Upper-Intermediate)</p>
                         </div>
                     </div>
-                    <div class="scroll-hint">Листайте вниз к детальным навыкам ↓</div>
+                    <div class="scroll-hint">Листайте вниз к Soft Skills ↓</div>
                 </main>
             </div>
         </section>
 
-        <!-- СТРАНИЦА 2: ДЕТАЛЬНЫЙ АНАЛИЗ НАВЫКОВ -->
+        <!-- СТРАНИЦА 2 -->
         <section class="page-section">
             <div class="resume-wrapper second-page">
-                <h2 class="page-title">Профессиональный профиль</h2>
                 <div class="skills-detailed">
                     <div class="skills-column">
                         <h3>Hard Skills & Expertise</h3>
-                        <div class="detail-card">
-                            <strong>Аналитика и визуализация:</strong>
-                            Apache Superset (развертывание, настройка), отрисовка специфических диаграмм (спидометры, тепловые карты, динамическое масштабирование).
-                        </div>
-                        <div class="detail-card">
-                            <strong>Доменная экспертиза:</strong>
-                            Электроэнергетика, системы накопления энергии, SCADA, протоколы связи, АСКУЭ.
-                        </div>
-                        <div class="detail-card">
-                            <strong>Работа с данными:</strong>
-                            SQL (сложные запросы), Python (математические модели, автоматизация расчетов).
-                        </div>
+                        <div class="detail-card"><strong>BI Matrix:</strong> Apache Superset, Sankey, Heatmaps.</div>
+                        <div class="detail-card"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ.</div>
                     </div>
                     <div class="skills-column">
                         <h3>Soft Skills</h3>
-                        <div class="soft-card"><strong>Self-management:</strong> Высокая автономность и дисциплина в удаленном формате.</div>
-                        <div class="soft-card"><strong>Адаптивность:</strong> Способность самостоятельно изучать и внедрять новый стек (Superset, SQL).</div>
-                        <div class="soft-card"><strong>Системное мышление:</strong> Сбор требований и перевод бизнес-задач на язык алгоритмов.</div>
-                        <div class="soft-card"><strong>Документация:</strong> Глубокий опыт разработки ТЗ по ГОСТ, исключающих двоякое толкование.</div>
+                        <div class="soft-card"><strong>Self-management:</strong> Автономность на удаленке.</div>
+                        <div class="soft-card"><strong>Адаптивность:</strong> Быстрое освоение нового стека.</div>
+                        <div class="soft-card"><strong>Системность:</strong> Перевод бизнеса в алгоритмы.</div>
                     </div>
                 </div>
             </div>
