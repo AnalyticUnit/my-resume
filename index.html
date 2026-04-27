@@ -7,6 +7,10 @@
     <title>Резюме | Смирнова Ирина (AnalyticUnit)</title>
 </head>
 <body>
+    <!-- Элементы кастомного курсора -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <div class="scroll-container">
         <!-- СТРАНИЦА 1 -->
         <section class="page-section">
@@ -124,16 +128,37 @@
         </section>
     </div>
 
+    <!-- Скрипт для вкладок и курсора -->
     <script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
-        tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) { tablinks[i].classList.remove("active"); }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.classList.add("active");
-    }
+        // Логика вкладок
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].classList.remove("active"); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Логика кастомного курсора
+        const dot = document.querySelector('.cursor-dot');
+        const outline = document.querySelector('.cursor-outline');
+
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            dot.style.left = `${posX}px`;
+            dot.style.top = `${posY}px`;
+            outline.style.left = `${posX}px`;
+            outline.style.top = `${posY}px`;
+        });
+
+        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
+            link.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
+        });
     </script>
 </body>
 </html>
