@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="scroll-container">
-        <!-- СТРАНИЦА 1: ОСНОВНОЕ РЕЗЮМЕ -->
+        <!-- СТРАНИЦА 1 -->
         <section class="page-section">
             <div class="resume-wrapper">
                 <aside class="sidebar">
@@ -17,67 +17,84 @@
                         <h1>Смирнова Ирина</h1>
                         <p class="tagline">Системный аналитик (Industrial Data / BI)</p>
                     </div>
+                    
                     <section class="sidebar-block">
                         <h3>Контакты</h3>
-                        <ul>
+                        <ul class="contact-list">
                             <li>📍 Чебоксары</li>
                             <li>✉️ <a href="mailto:irinanevskaya13@gmail.com">Email</a></li>
                             <li>🔗 <a href="https://t.me">Telegram</a></li>
                         </ul>
+                    </section>
+
+                    <section class="sidebar-block">
+                        <h3>Ключевые навыки</h3>
+                        <div class="mini-tags">
+                            <span>Apache Superset</span>
+                            <span>SQL</span>
+                            <span>Python</span>
+                            <span>SCADA</span>
+                        </div>
                     </section>
                 </aside>
 
                 <main class="main-content">
                     <nav class="tabs-nav">
                         <button class="tab-btn active" onclick="openTab(event, 'exp')">Опыт</button>
-                        <button class="tab-btn" onclick="openTab(event, 'hard')">Hard Skills</button>
+                        <button class="tab-btn" onclick="openTab(event, 'skills')">Навыки</button>
+                        <button class="tab-btn" onclick="openTab(event, 'edu')">Образование</button>
                     </nav>
 
                     <div id="exp" class="tab-content active-content fade-in">
                         <div class="experience-item">
-                            <div class="exp-header"><h3>Инженер 2 кат.</h3><span>2024 — Наст. время</span></div>
+                            <div class="exp-header"><h3>Инженер продуктового направления 2 кат.</h3><span>2024 — Наст. время</span></div>
                             <p class="company">ЭКРА</p>
                             <ul>
-                                <li>Развертывание Apache Superset и настройка BI-дашбордов.</li>
-                                <li>Проектирование алгоритмов для ПО EKRASCADA.</li>
+                                <li>Развертывание Apache Superset и настройка дашбордов.</li>
+                                <li>Проектирование алгоритмов визуализации данных.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div id="hard" class="tab-content fade-in">
+                    <div id="skills" class="tab-content fade-in">
                         <div class="progress-container">
                             <div class="progress-item">
-                                <div class="progress-info"><span>Apache Superset / BI</span><span>90%</span></div>
+                                <div class="progress-info"><span>BI & Визуализация</span><span>90%</span></div>
                                 <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
                             </div>
                             <div class="progress-item">
-                                <div class="progress-info"><span>SQL & Python</span><span>80%</span></div>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                                <div class="progress-info"><span>SQL & Python</span><span>85%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
                             </div>
                         </div>
                     </div>
+
+                    <div id="edu" class="tab-content fade-in">
+                        <div class="experience-item">
+                            <h3>Магистр | Цифровые энергосистемы</h3>
+                            <p>Чувашский ГУ им. И.Н. Ульянова, 2022</p>
+                        </div>
+                    </div>
+
                     <div class="scroll-hint">Листайте вниз к Soft Skills ↓</div>
                 </main>
             </div>
         </section>
 
-        <!-- СТРАНИЦА 2: ПОДРОБНЫЕ НАВЫКИ -->
+        <!-- СТРАНИЦА 2 -->
         <section class="page-section">
             <div class="resume-wrapper second-page">
                 <div class="skills-detailed">
                     <div class="skills-column">
-                        <h2>Подробные Hard Skills</h2>
-                        <div class="detail-card">
-                            <strong>Аналитика:</strong> Apache Superset, Sankey, Heatmaps, Спидометры.
-                        </div>
-                        <div class="detail-card">
-                            <strong>Проектирование:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ документация.
-                        </div>
+                        <h2>Hard Skills</h2>
+                        <div class="detail-card"><strong>Аналитика:</strong> Apache Superset, создание сложных дашбордов (Sankey, Heatmaps).</div>
+                        <div class="detail-card"><strong>Данные:</strong> SQL (сложные запросы), Python (математические модели).</div>
+                        <div class="detail-card"><strong>Проектирование:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ документация.</div>
                     </div>
                     <div class="skills-column">
                         <h2>Soft Skills</h2>
-                        <div class="soft-card"><strong>Self-management:</strong> Автономность и дисциплина на удаленке.</div>
-                        <div class="soft-card"><strong>Адаптивность:</strong> Быстрое освоение стека (SQL, Python).</div>
+                        <div class="soft-card"><strong>Self-management:</strong> Высокая автономность на удаленке и дисциплина.</div>
+                        <div class="soft-card"><strong>Адаптивность:</strong> Быстрое самостоятельное освоение стека.</div>
                         <div class="soft-card"><strong>Системность:</strong> Перевод бизнеса на язык алгоритмов.</div>
                     </div>
                 </div>
