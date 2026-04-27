@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    
+
     <title>AnalyticUnit | Смирнова Ирина</title>
 </head>
 <body>
@@ -30,6 +30,8 @@
                         <h1>Смирнова Ирина</h1>
                         <p class="tagline">Системный аналитик<br>(Industrial Data / BI)</p>
                     </div>
+
+                    <!-- КОНТАКТЫ -->
                     <section class="sidebar-block">
                         <h3>Контакты</h3>
                         <ul class="contact-list">
@@ -38,6 +40,18 @@
                             <li>📞 +7 902 359-77-87</li>
                             <li>🔗 <a href="https://t.me">Telegram</a></li>
                         </ul>
+                    </section>
+
+                    <!-- HARD STACK (ИЗ ИЗОБРАЖЕНИЯ) -->
+                    <section class="sidebar-block">
+                        <h3>Hard Stack</h3>
+                        <div class="mini-tags">
+                            <span class="interactive-tag">Apache Superset</span>
+                            <span class="interactive-tag">SQL/MySQL</span>
+                            <span class="interactive-tag">Python</span>
+                            <span class="interactive-tag">Matlab</span>
+                            <span class="interactive-tag">SCADA</span>
+                        </div>
                     </section>
                 </aside>
 
@@ -101,13 +115,11 @@
         <section class="page-section" id="page2">
             <div class="resume-wrapper second-page">
                 <div class="skills-detailed">
-                    <!-- ЛЕВАЯ КОЛОНКА (HARD SKILLS) -->
                     <div class="skills-column">
                         <h3 class="accent-title-page">Hard Skills & Expertise</h3>
                         <div class="detail-card"><strong>BI Matrix:</strong> Apache Superset, Sankey, Heatmaps.</div>
                         <div class="detail-card"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ.</div>
                     </div>
-                    <!-- ПРАВАЯ КОЛОНКА (SOFT SKILLS) -->
                     <div class="skills-column">
                         <h3 class="accent-title-page">Soft Skills</h3>
                         <div class="soft-card"><strong>Self-management:</strong> Высокая автономность и дисциплина.</div>
@@ -172,7 +184,7 @@
             outline.style.left = e.clientX + 'px'; outline.style.top = e.clientY + 'px';
         });
 
-        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card, .nav-dot, .nav-arrow, .contact-list li');
+        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card, .nav-dot, .nav-arrow, .contact-list li, .interactive-tag');
         links.forEach(el => {
             el.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
