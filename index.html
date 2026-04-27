@@ -69,10 +69,9 @@
                         </div>
                     </div>
 
-                    <!-- ИСПРАВЛЕННЫЙ БЛОК НАВЫКОВ -->
+                    <!-- НАВЫКИ С ИДЕАЛЬНОЙ ГЕОМЕТРИЕЙ -->
                     <div id="skills" class="tab-content fade-in">
                         <div class="circular-skills-container">
-                            <!-- Skill 1 -->
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 90;">
                                     <svg viewBox="0 0 120 120">
@@ -83,7 +82,6 @@
                                 </div>
                                 <p class="skill-label">BI & Viz<br>(Superset)</p>
                             </div>
-                            <!-- Skill 2 -->
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 85;">
                                     <svg viewBox="0 0 120 120">
@@ -94,7 +92,6 @@
                                 </div>
                                 <p class="skill-label">SQL<br>(MySQL/BI)</p>
                             </div>
-                            <!-- Skill 3 -->
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 70;">
                                     <svg viewBox="0 0 120 120">
@@ -123,11 +120,13 @@
         <section class="page-section" id="page2">
             <div class="resume-wrapper second-page">
                 <div class="skills-detailed">
+                    <!-- HARD SKILLS (ЛЕВАЯ КОЛОНКА) -->
                     <div class="skills-column">
                         <h3 class="accent-title-page">Hard Skills & Expertise</h3>
                         <div class="detail-card"><strong>BI Matrix:</strong> Apache Superset, Sankey, Heatmaps.</div>
                         <div class="detail-card"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ.</div>
                     </div>
+                    <!-- SOFT SKILLS (ПРАВАЯ КОЛОНКА) -->
                     <div class="skills-column">
                         <h3 class="accent-title-page">Soft Skills</h3>
                         <div class="soft-card interactive has-tooltip" data-tooltip="Самостоятельно изучила и внедрила Apache Superset в экосистему компании за пару месяцев, не имея готовой экспертизы внутри команды">
@@ -185,8 +184,7 @@
                 downArrow.style.opacity = "1"; downArrow.classList.add('blink');
             } else {
                 upArrow.style.opacity = "1"; upArrow.style.pointerEvents = "auto";
-                downArrow.style.opacity = "0"; downArrow.style.pointerEvents = "none";
-                downArrow.classList.remove('blink');
+                downArrow.style.opacity = "0"; downArrow.classList.remove('blink');
             }
         });
 
