@@ -1,8 +1,8 @@
 :root {
-    --primary: #3a4443;      /* Темный хвойно-графитовый для текста */
-    --accent: #6b7f7a;       /* Глубокий шалфей (основной акцент) */
-    --accent-soft: #e2e8e7;  /* Мягкий шалфей для подложек */
-    --bg-site: #f2f5f4;      /* Светлый серо-зеленый фон сайта */
+    --primary: #2f3635;      /* Глубокий графит для текста */
+    --accent: #7ba098;       /* Светлый хвойный шалфей (теперь точно цветной) */
+    --accent-soft: #e8f0ee;  /* Очень нежный шалфей для подложек */
+    --bg-site: #f8faf9;      /* Чистый светлый фон */
     --white: #ffffff;
 }
 
@@ -16,8 +16,8 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
     html, body, a, button { cursor: none !important; }
     .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; transition: transform 0.2s; }
     .cursor-dot { width: 6px; height: 6px; background: var(--primary); }
-    .cursor-outline { width: 18px; height: 18px; border: 1px solid var(--accent); background: rgba(107, 127, 122, 0.05); }
-    .cursor-hover { transform: translate(-50%, -50%) scale(1.4); background: rgba(107, 127, 122, 0.15); }
+    .cursor-outline { width: 18px; height: 18px; border: 1px solid var(--accent); background: rgba(123, 160, 152, 0.05); }
+    .cursor-hover { transform: translate(-50%, -50%) scale(1.4); background: rgba(123, 160, 152, 0.15); }
 }
 
 /* КОНТЕЙНЕРЫ */
@@ -29,7 +29,7 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
 /* САЙДБАР */
 .sidebar { padding: 50px 40px; border-right: 1px solid #f0f3f2; text-align: center; }
 .photo { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 6px solid var(--accent-soft); margin-bottom: 25px; transition: 0.4s; }
-.photo:hover { transform: scale(1.08); box-shadow: 0 15px 35px rgba(107, 127, 122, 0.3); }
+.photo:hover { transform: scale(1.08); box-shadow: 0 15px 35px rgba(123, 160, 152, 0.3); }
 .tagline { color: var(--accent); font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 25px; line-height: 1.4; }
 .contact-list { list-style: none; padding: 0; text-align: left; margin: 30px 0; font-size: 14px; }
 .contact-list a { color: var(--primary); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: 0.3s; }
@@ -38,7 +38,7 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
 /* КОНТЕНТ */
 .main-content { padding: 50px 70px; position: relative; }
 .tabs-nav { display: inline-flex; gap: 10px; padding: 6px; background: #f1f5f4; border-radius: 16px; margin-bottom: 40px; }
-.tab-btn { border: none; padding: 12px 25px; cursor: pointer; border-radius: 12px; font-weight: 600; color: #647472; background: none; transition: 0.3s; }
+.tab-btn { border: none; padding: 12px 25px; cursor: pointer; border-radius: 12px; font-weight: 600; color: #6e7a78; background: none; transition: 0.3s; }
 .tab-btn.active { background: #fff; color: var(--accent); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
 
 /* АКЦЕНТЫ */
@@ -58,8 +58,8 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
 
 /* КАРТОЧКИ */
 .skills-detailed { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-.detail-card, .soft-card { background: var(--bg-site); padding: 20px; border-radius: 15px; margin-bottom: 20px; border-left: 6px solid var(--accent); transition: 0.3s; }
-.detail-card:hover, .soft-card:hover { transform: translateX(10px); background: #fff; box-shadow: 0 10px 25px rgba(107, 127, 122, 0.15); }
+.detail-card, .soft-card { background: var(--accent-soft); padding: 20px; border-radius: 15px; margin-bottom: 20px; border-left: 6px solid var(--accent); transition: 0.3s; }
+.detail-card:hover, .soft-card:hover { transform: translateX(10px); background: #fff; box-shadow: 0 10px 25px rgba(123, 160, 152, 0.15); }
 
 .tab-content { display: none; }
 .active-content { display: block; }
