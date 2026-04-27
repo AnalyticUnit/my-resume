@@ -9,60 +9,58 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg-site); }
 
+/* Кастомный курсор (только для десктопа) */
+@media (min-width: 1000px) {
+    html, body, a, button { cursor: none !important; }
+    .cursor-dot, .cursor-outline {
+        position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+        border-radius: 50%; z-index: 9999; pointer-events: none;
+    }
+    .cursor-dot { width: 6px; height: 6px; background-color: var(--primary); }
+    .cursor-outline {
+        width: 30px; height: 30px; border: 2px solid var(--accent);
+        background-color: rgba(212, 165, 165, 0.1);
+        transition: left 0.1s ease-out, top 0.1s ease-out, transform 0.3s ease;
+    }
+    .cursor-hover { transform: translate(-50%, -50%) scale(1.8); background-color: rgba(212, 165, 165, 0.2); }
+}
+
 .scroll-container { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; }
 .page-section { height: 100vh; display: flex; justify-content: center; align-items: center; scroll-snap-align: start; padding: 20px; }
 
-/* УВЕЛИЧЕННЫЙ РАЗМЕР КАРТОЧКИ */
 .resume-wrapper {
-    max-width: 1200px; /* Было 1050px */
-    width: 100%; 
-    height: 800px; /* Было 700px */
-    background: var(--white); 
-    display: grid; 
-    grid-template-columns: 350px 1fr; /* Увеличил сайдбар */
-    border-radius: 24px; 
-    box-shadow: 0 20px 60px rgba(0,0,0,0.07); 
-    overflow: hidden;
+    max-width: 1200px; width: 100%; height: 800px;
+    background: var(--white); display: grid; grid-template-columns: 350px 1fr;
+    border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.07); overflow: hidden;
 }
 
 .second-page { display: block; padding: 60px; }
 
-/* САЙДБАР И ФОТО */
 .sidebar { padding: 50px 40px; border-right: 1px solid #f5f5f5; text-align: center; }
 .photo { 
     width: 180px; height: 180px; border-radius: 50%; object-fit: cover; 
     border: 6px solid var(--accent-soft); margin-bottom: 25px; 
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
-    cursor: pointer;
 }
-.photo:hover { 
-    transform: scale(1.08); 
-    box-shadow: 0 15px 35px rgba(212, 165, 165, 0.4);
-}
+.photo:hover { transform: scale(1.08); box-shadow: 0 15px 35px rgba(212, 165, 165, 0.4); }
 
-.tagline { color: var(--accent); font-weight: bold; font-size: 12px; text-transform: uppercase; margin-bottom: 25px; }
-
-/* КОНТАКТЫ */
 .contact-list { list-style: none; padding: 0; text-align: left; margin: 30px 0; }
 .contact-list li { margin-bottom: 15px; font-size: 14px; transition: 0.3s; }
-.contact-list a { color: var(--primary); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: all 0.3s ease; }
+.contact-list a { color: var(--primary); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: 0.3s; }
 .contact-list li:hover { transform: translateX(8px); }
 .contact-list a:hover { color: var(--accent); border-color: var(--accent); }
 
 .mini-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .mini-tags span { background: var(--bg-site); padding: 5px 12px; border-radius: 8px; font-size: 11px; font-weight: 600; }
 
-/* ОСНОВНОЙ КОНТЕНТ */
 .main-content { padding: 50px 70px; position: relative; }
 .tabs-nav { display: inline-flex; gap: 10px; padding: 6px; background: #f1f5f9; border-radius: 16px; margin-bottom: 40px; }
 .tab-btn { border: none; padding: 12px 25px; cursor: pointer; border-radius: 12px; font-weight: 600; color: #64748b; background: none; transition: 0.3s; }
 .tab-btn.active { background: #fff; color: var(--accent); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
 
-/* КРУГОВЫЕ ШКАЛЫ */
 .circular-skills-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 20px; }
 .skill-circle-item { text-align: center; width: 130px; }
 .skill-circle-item p { font-size: 13px; font-weight: 700; margin-top: 15px; color: var(--primary); }
-
 .progress-circle { position: relative; width: 110px; height: 110px; margin: 0 auto; transition: 0.3s; }
 .progress-circle svg { width: 110px; height: 110px; transform: rotate(-90deg); }
 .progress-circle circle { fill: none; stroke-width: 9; stroke: #f1f5f9; stroke-linecap: round; }
@@ -72,28 +70,15 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
     animation: circleGrow 1.5s ease-out forwards;
 }
 @keyframes circleGrow { from { stroke-dashoffset: 283; } }
-
-.progress-circle .number h3 { font-size: 22px; color: var(--primary); margin: 0; }
 .progress-circle .number { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+.progress-circle .number h3 { font-size: 22px; color: var(--primary); margin: 0; }
 
-/* ВТОРАЯ СТРАНИЦА И ХОВЕРЫ */
 .skills-detailed { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
 .detail-card, .soft-card { 
-    background: var(--bg-site); 
-    padding: 20px; 
-    border-radius: 15px; 
-    margin-bottom: 20px; 
-    border-left: 6px solid var(--accent); 
-    font-size: 15px; 
-    transition: all 0.3s ease; 
+    background: var(--bg-site); padding: 20px; border-radius: 15px; margin-bottom: 20px; 
+    border-left: 6px solid var(--accent); font-size: 15px; transition: 0.3s; 
 }
-
-/* Единый эффект наведения для обеих колонок */
-.detail-card:hover, .soft-card:hover { 
-    transform: translateX(10px); 
-    background: var(--white); 
-    box-shadow: 0 10px 25px rgba(212, 165, 165, 0.2);
-}
+.detail-card:hover, .soft-card:hover { transform: translateX(10px); background: var(--white); box-shadow: 0 10px 25px rgba(212, 165, 165, 0.2); }
 
 .tab-content { display: none; }
 .active-content { display: block; }
