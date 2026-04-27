@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- Иконка вкладки (📊) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
     <title>Резюме | Смирнова Ирина (AnalyticUnit)</title>
 </head>
 <body>
@@ -63,6 +65,7 @@
                             <ul>
                                 <li><strong>Внедрение BI:</strong> развернула Apache Superset, настроила интеграцию данных из SCADA.</li>
                                 <li><strong>Алгоритмы:</strong> проектирование логики Sankey, Heatmap и "умных" осей для ПО EKRASCADA.</li>
+                                <li><strong>Python:</strong> создание тестовых приложений для верификации математических моделей.</li>
                             </ul>
                         </div>
                         <div class="experience-item">
@@ -70,7 +73,7 @@
                             <p class="company">ЭКРА</p>
                             <ul>
                                 <li>Разработка сложных ТЗ по визуализации данных для IT-отдела.</li>
-                                <li>НИОКР: разработка алгоритмов в Matlab Simulink для систем накопления энергии.</li>
+                                <li>НИОКР: работа в Matlab Simulink, разработка алгоритмов для систем накопления энергии.</li>
                             </ul>
                         </div>
                     </div>
@@ -119,22 +122,25 @@
                 <div class="skills-detailed">
                     <div class="skills-column">
                         <h3>Hard Skills & Expertise</h3>
-                        <div class="detail-card"><strong>BI Matrix:</strong> Apache Superset, Sankey, Heatmaps.</div>
-                        <div class="detail-card"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ.</div>
+                        <div class="detail-card"><strong>BI Matrix:</strong> Apache Superset (настройка, дашборды), Sankey, Heatmaps.</div>
+                        <div class="detail-card"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ, проектирование систем учета.</div>
+                        <div class="detail-card"><strong>Data Core:</strong> SQL (сложные запросы), Python (автоматизация и моделирование).</div>
                     </div>
                     <div class="skills-column">
                         <h3>Soft Skills</h3>
-                        <div class="soft-card"><strong>Self-management:</strong> Автономность на удаленке.</div>
-                        <div class="soft-card"><strong>Адаптивность:</strong> Быстрое освоение нового стека.</div>
-                        <div class="soft-card"><strong>Системность:</strong> Перевод бизнеса в алгоритмы.</div>
+                        <div class="soft-card"><strong>Self-management:</strong> Высокая автономность и дисциплина в удаленном формате.</div>
+                        <div class="soft-card"><strong>Адаптивность:</strong> Способность быстро осваивать новый софт и инструменты.</div>
+                        <div class="soft-card"><strong>Системность:</strong> Навык сбора требований и перевод задач на язык алгоритмов.</div>
+                        <div class="soft-card"><strong>Документация:</strong> Опыт разработки ТЗ, исключающих двоякое толкование.</div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- ЛОГИКА ИНТЕРФЕЙСА -->
     <script>
-        // Логика вкладок
+        // Переключение вкладок
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
@@ -145,7 +151,7 @@
             evt.currentTarget.classList.add("active");
         }
 
-        // Логика кастомного курсора
+        // Кастомный курсор
         const dot = document.querySelector('.cursor-dot');
         const outline = document.querySelector('.cursor-outline');
         window.addEventListener('mousemove', (e) => {
@@ -155,13 +161,14 @@
             outline.style.top = e.clientY + 'px';
         });
 
-        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card');
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
-            link.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
+        // Эффект наведения курсора
+        const interactiveElements = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
         });
 
-        // Логика индикатора прокрутки
+        // Индикатор прокрутки
         const progressBar = document.querySelector('.scroll-progress-bar');
         const scrollContainer = document.querySelector('.scroll-container');
         scrollContainer.addEventListener('scroll', () => {
