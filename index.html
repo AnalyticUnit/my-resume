@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- Иконка вкладки 📊 -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='80' font-size='80'>📊</text></svg>">
     <title>AnalyticUnit | Смирнова Ирина</title>
 </head>
 <body>
-    <!-- Индикатор прокрутки -->
     <div class="scroll-progress-container"><div class="scroll-progress-bar"></div></div>
-
-    <!-- Кастомный курсор -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <div class="scroll-container">
+    <!-- ТОЧКИ ПРОКРУТКИ -->
+    <div class="scroll-nav">
+        <div class="nav-dot active" onclick="scrollToPage(0)"></div>
+        <div class="nav-dot" onclick="scrollToPage(1)"></div>
+    </div>
+
+    <div class="scroll-container" id="mainContainer">
         <!-- СТРАНИЦА 1 -->
-        <section class="page-section">
+        <section class="page-section" id="page1">
             <div class="resume-wrapper">
                 <aside class="sidebar">
                     <div class="profile-section">
@@ -44,7 +46,6 @@
                         <button class="tab-btn" onclick="openTab(event, 'edu')">Образование</button>
                     </nav>
 
-                    <!-- ВКЛАДКА: ОПЫТ -->
                     <div id="exp" class="tab-content active-content fade-in">
                         <div class="experience-item">
                             <div class="exp-header"><h3 class="accent-title">Инженер продуктового направления 2 кат.</h3><span>2024 — Наст. время</span></div>
@@ -56,7 +57,6 @@
                         </div>
                     </div>
 
-                    <!-- ВКЛАДКА: НАВЫКИ (ЧИСТЫЕ ДИАГРАММЫ) -->
                     <div id="skills" class="tab-content fade-in">
                         <div class="circular-skills-container">
                             <div class="skill-circle-item">
@@ -83,20 +83,18 @@
                         </div>
                     </div>
 
-                    <!-- ВКЛАДКА: ОБРАЗОВАНИЕ -->
                     <div id="edu" class="tab-content fade-in">
                         <div class="experience-item">
                             <p><strong>Магистр:</strong> Цифровые энергосистемы (ЧГУ), 2022</p>
                             <p><strong>Бакалавр:</strong> Электроснабжение (ЧГУ), 2020</p>
                         </div>
                     </div>
-                    <div class="scroll-hint">Листайте вниз к Soft Skills ↓</div>
                 </main>
             </div>
         </section>
 
         <!-- СТРАНИЦА 2 -->
-        <section class="page-section">
+        <section class="page-section" id="page2">
             <div class="resume-wrapper second-page">
                 <div class="skills-detailed">
                     <div class="skills-column">
@@ -115,6 +113,11 @@
     </div>
 
     <script>
+        const scrollContainer = document.querySelector('.scroll-container');
+        const progressBar = document.querySelector('.scroll-progress-bar');
+        const dots = document.querySelectorAll('.nav-dot');
+
+        // Логика вкладок
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
@@ -125,6 +128,31 @@
             evt.currentTarget.classList.add("active");
         }
 
+        // Перемотка по точкам
+        function scrollToPage(pageIndex) {
+            const height = scrollContainer.clientHeight;
+            scrollContainer.scrollTo({
+                top: pageIndex * height,
+                behavior: 'smooth'
+            });
+        }
+
+        // Слежение за скроллом (индикатор + точки)
+        scrollContainer.addEventListener('scroll', () => {
+            const scrollTop = scrollContainer.scrollTop;
+            const height = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+            const scrolled = (scrollTop / height) * 100;
+            progressBar.style.width = scrolled + "%";
+
+            // Переключение активной точки
+            const currentPage = Math.round(scrollTop / scrollContainer.clientHeight);
+            dots.forEach((dot, index) => {
+                if (index === currentPage) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        });
+
+        // Кастомный курсор
         const dot = document.querySelector('.cursor-dot');
         const outline = document.querySelector('.cursor-outline');
         window.addEventListener('mousemove', (e) => {
@@ -134,18 +162,10 @@
             outline.style.top = e.clientY + 'px';
         });
 
-        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card');
+        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card, .nav-dot');
         links.forEach(el => {
             el.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
-        });
-
-        const progressBar = document.querySelector('.scroll-progress-bar');
-        const scrollContainer = document.querySelector('.scroll-container');
-        scrollContainer.addEventListener('scroll', () => {
-            const winScroll = scrollContainer.scrollTop;
-            const height = scrollContainer.scrollHeight - scrollContainer.clientHeight;
-            progressBar.style.width = ((winScroll / height) * 100) + "%";
         });
     </script>
 </body>
