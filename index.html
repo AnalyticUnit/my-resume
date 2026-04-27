@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='80' font-size='80'>📊</text></svg>">
-    <title>Резюме | Смирнова Ирина</title>
+    <title>Резюме | Смирнова Ирина (AnalyticUnit)</title>
 </head>
 <body>
     <div class="scroll-progress-container"><div class="scroll-progress-bar"></div></div>
@@ -20,38 +20,40 @@
                     <div class="profile-section">
                         <img src="photo.jpg" alt="Смирнова Ирина" class="photo">
                         <h1>Смирнова Ирина</h1>
-                        <p class="tagline">Системный аналитик<br>(Industrial Data / BI)</p>
+                        <p class="tagline">Системный аналитик (Industrial Data / BI)</p>
                     </div>
+                    
                     <section class="sidebar-block">
                         <h3>Контакты</h3>
                         <ul class="contact-list">
                             <li>📍 Чебоксары</li>
-                            <li>✉️ <a href="mailto:irinanevskaya13@gmail.com" class="interactive">Email</a></li>
+                            <li>✉️ <a href="mailto:irinanevskaya13@gmail.com">Email</a></li>
                             <li>📞 +7 902 359-77-87</li>
-                            <li>🔗 <a href="https://t.me" class="interactive">Telegram</a></li>
+                            <li>🔗 <a href="https://t.me">Telegram</a></li>
                         </ul>
                     </section>
+
                     <section class="sidebar-block">
                         <h3>Hard Stack</h3>
                         <div class="mini-tags">
-                            <span>Apache Superset</span><span>SQL</span><span>Python</span><span>Matlab</span>
+                            <span>Apache Superset</span><span>SQL</span><span>Python</span><span>SCADA</span>
                         </div>
                     </section>
                 </aside>
 
                 <main class="main-content">
                     <nav class="tabs-nav">
-                        <button class="tab-btn active interactive" onclick="openTab(event, 'exp')">Опыт работы</button>
-                        <button class="tab-btn interactive" onclick="openTab(event, 'skills')">Навыки</button>
-                        <button class="tab-btn interactive" onclick="openTab(event, 'edu')">Образование</button>
+                        <button class="tab-btn active" onclick="openTab(event, 'exp')">Опыт работы</button>
+                        <button class="tab-btn" onclick="openTab(event, 'skills')">Навыки</button>
+                        <button class="tab-btn" onclick="openTab(event, 'edu')">Образование</button>
                     </nav>
 
                     <div id="exp" class="tab-content active-content fade-in">
                         <div class="experience-item">
-                            <div class="exp-header"><h3 class="accent-title">Инженер продуктового направления 2 кат.</h3><span>2024 — Наст. время</span></div>
+                            <div class="exp-header"><h3 class="accent-title">Инженер 2 кат.</h3><span>2024 — Наст. время</span></div>
                             <p class="company">ЭКРА</p>
                             <ul>
-                                <li>Развертывание <strong>Apache Superset</strong> и настройка дашбордов.</li>
+                                <li>Развертывание Apache Superset и настройка дашбордов.</li>
                                 <li>Проектирование алгоритмов визуализации данных.</li>
                             </ul>
                         </div>
@@ -93,13 +95,13 @@
                 <div class="skills-detailed">
                     <div class="skills-column">
                         <h3 class="accent-title-page">Hard Skills</h3>
-                        <div class="detail-card interactive"><strong>BI Matrix:</strong> Apache Superset, Sankey, Heatmaps.</div>
-                        <div class="detail-card interactive"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ.</div>
+                        <div class="detail-card"><strong>BI Matrix:</strong> Apache Superset, Sankey, Heatmaps.</div>
+                        <div class="detail-card"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ.</div>
                     </div>
                     <div class="skills-column">
                         <h3 class="accent-title-page">Soft Skills</h3>
-                        <div class="soft-card interactive"><strong>Self-management:</strong> Автономность на удаленке.</div>
-                        <div class="soft-card interactive"><strong>Адаптивность:</strong> Быстрое освоение нового стека.</div>
+                        <div class="soft-card"><strong>Self-management:</strong> Автономность на удаленке.</div>
+                        <div class="soft-card"><strong>Адаптивность:</strong> Быстрое освоение нового стека.</div>
                     </div>
                 </div>
             </div>
@@ -116,21 +118,17 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.classList.add("active");
         }
-
         const dot = document.querySelector('.cursor-dot');
         const outline = document.querySelector('.cursor-outline');
         window.addEventListener('mousemove', (e) => {
             dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
             outline.style.left = e.clientX + 'px'; outline.style.top = e.clientY + 'px';
         });
-
-        // Слушатель для всех интерактивных элементов
-        const interactive = document.querySelectorAll('.interactive, a, button, .photo');
-        interactive.forEach(el => {
+        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card');
+        links.forEach(el => {
             el.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
         });
-
         const progressBar = document.querySelector('.scroll-progress-bar');
         const scrollContainer = document.querySelector('.scroll-container');
         scrollContainer.addEventListener('scroll', () => {
