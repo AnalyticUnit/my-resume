@@ -4,7 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- Иконка вкладки 📊 -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='80' font-size='80'>📊</text></svg>">
+    
+    <!-- Подключение Mermaid.js для отрисовки схем -->
+    <script src="https://jsdelivr.net"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                'primaryColor': '#ffffff',
+                'primaryTextColor': '#2f3635',
+                'primaryBorderColor': '#7ba098',
+                'lineColor': '#7ba098',
+                'secondaryColor': '#e8f0ee',
+                'tertiaryColor': '#f8faf9'
+            }
+        });
+    </script>
+    
     <title>Резюме | Смирнова Ирина</title>
 </head>
 <body>
@@ -34,6 +53,12 @@
                             <li>🔗 <a href="https://t.me">Telegram</a></li>
                         </ul>
                     </section>
+                    <section class="sidebar-block">
+                        <h3>Hard Stack</h3>
+                        <div class="mini-tags">
+                            <span>Apache Superset</span><span>SQL</span><span>Python</span><span>SCADA</span>
+                        </div>
+                    </section>
                 </aside>
 
                 <main class="main-content">
@@ -61,21 +86,21 @@
                                     <svg><circle cx="55" cy="55" r="50"></circle><circle cx="55" cy="55" r="50" class="percent-fill"></circle></svg>
                                     <div class="number">90%</div>
                                 </div>
-                                <p class="skill-label">BI & Viz (Superset)</p>
+                                <p class="skill-label">BI & Viz</p>
                             </div>
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 85;">
                                     <svg><circle cx="55" cy="55" r="50"></circle><circle cx="55" cy="55" r="50" class="percent-fill"></circle></svg>
                                     <div class="number">85%</div>
                                 </div>
-                                <p class="skill-label">SQL (MySQL/BI)</p>
+                                <p class="skill-label">SQL</p>
                             </div>
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 70;">
                                     <svg><circle cx="55" cy="55" r="50"></circle><circle cx="55" cy="55" r="50" class="percent-fill"></circle></svg>
                                     <div class="number">70%</div>
                                 </div>
-                                <p class="skill-label">Python (Models)</p>
+                                <p class="skill-label">Python</p>
                             </div>
                         </div>
                     </div>
@@ -86,7 +111,7 @@
                             <p><strong>Бакалавр:</strong> Электроснабжение (ЧГУ), 2020</p>
                         </div>
                     </div>
-                    <div class="scroll-hint">Листайте вниз к Soft Skills ↓</div>
+                    <div class="scroll-hint">Листайте вниз к архитектуре данных ↓</div>
                 </main>
             </div>
         </section>
@@ -99,11 +124,24 @@
                         <h3 class="accent-title-page">Hard Skills & Expertise</h3>
                         <div class="detail-card"><strong>BI Matrix:</strong> Apache Superset, Sankey, Heatmaps.</div>
                         <div class="detail-card"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ.</div>
+                        
+                        <!-- Блок со схемой Mermaid -->
+                        <div class="mermaid-block">
+                            <h4>Data Pipeline Concept</h4>
+                            <pre class="mermaid">
+                            graph LR
+                                A[SCADA Data] -->|Raw| B(Python ETL)
+                                B -->|Processed| C[(SQL Database)]
+                                C -->|Query| D{Superset}
+                                D -->|Insights| E[Dashboard]
+                            </pre>
+                        </div>
                     </div>
                     <div class="skills-column">
                         <h3 class="accent-title-page">Soft Skills</h3>
                         <div class="soft-card"><strong>Self-management:</strong> Высокая автономность и дисциплина.</div>
                         <div class="soft-card"><strong>Адаптивность:</strong> Быстрое освоение нового стека.</div>
+                        <div class="soft-card"><strong>System Logic:</strong> Перевод бизнеса в алгоритмы.</div>
                     </div>
                 </div>
             </div>
