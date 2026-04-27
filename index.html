@@ -13,6 +13,7 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
+    <!-- ТОЧКИ ПРОКРУТКИ -->
     <div class="scroll-nav">
         <div class="nav-arrow up" id="upArrow" onclick="scrollToPage(0)">↑</div>
         <div class="nav-dot active" onclick="scrollToPage(0)"></div>
@@ -68,25 +69,38 @@
                         </div>
                     </div>
 
+                    <!-- ИСПРАВЛЕННЫЙ БЛОК НАВЫКОВ -->
                     <div id="skills" class="tab-content fade-in">
                         <div class="circular-skills-container">
+                            <!-- Skill 1 -->
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 90;">
-                                    <svg><circle cx="55" cy="55" r="50"></circle><circle cx="55" cy="55" r="50" class="percent-fill"></circle></svg>
+                                    <svg viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="54" class="bg-circle"></circle>
+                                        <circle cx="60" cy="60" r="54" class="percent-fill"></circle>
+                                    </svg>
                                     <div class="number">90%</div>
                                 </div>
                                 <p class="skill-label">BI & Viz<br>(Superset)</p>
                             </div>
+                            <!-- Skill 2 -->
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 85;">
-                                    <svg><circle cx="55" cy="55" r="50"></circle><circle cx="55" cy="55" r="50" class="percent-fill"></circle></svg>
+                                    <svg viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="54" class="bg-circle"></circle>
+                                        <circle cx="60" cy="60" r="54" class="percent-fill"></circle>
+                                    </svg>
                                     <div class="number">85%</div>
                                 </div>
                                 <p class="skill-label">SQL<br>(MySQL/BI)</p>
                             </div>
+                            <!-- Skill 3 -->
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 70;">
-                                    <svg><circle cx="55" cy="55" r="50"></circle><circle cx="55" cy="55" r="50" class="percent-fill"></circle></svg>
+                                    <svg viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="54" class="bg-circle"></circle>
+                                        <circle cx="60" cy="60" r="54" class="percent-fill"></circle>
+                                    </svg>
                                     <div class="number">70%</div>
                                 </div>
                                 <p class="skill-label">Python<br>(Models)</p>
@@ -109,13 +123,11 @@
         <section class="page-section" id="page2">
             <div class="resume-wrapper second-page">
                 <div class="skills-detailed">
-                    <!-- HARD SKILLS ТЕПЕРЬ СЛЕВА -->
                     <div class="skills-column">
                         <h3 class="accent-title-page">Hard Skills & Expertise</h3>
                         <div class="detail-card"><strong>BI Matrix:</strong> Apache Superset, Sankey, Heatmaps.</div>
                         <div class="detail-card"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ.</div>
                     </div>
-                    <!-- SOFT SKILLS ТЕПЕРЬ СПРАВА -->
                     <div class="skills-column">
                         <h3 class="accent-title-page">Soft Skills</h3>
                         <div class="soft-card interactive has-tooltip" data-tooltip="Самостоятельно изучила и внедрила Apache Superset в экосистему компании за пару месяцев, не имея готовой экспертизы внутри команды">
@@ -173,7 +185,8 @@
                 downArrow.style.opacity = "1"; downArrow.classList.add('blink');
             } else {
                 upArrow.style.opacity = "1"; upArrow.style.pointerEvents = "auto";
-                downArrow.style.opacity = "0"; downArrow.classList.remove('blink');
+                downArrow.style.opacity = "0"; downArrow.style.pointerEvents = "none";
+                downArrow.classList.remove('blink');
             }
         });
 
