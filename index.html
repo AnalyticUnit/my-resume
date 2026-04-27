@@ -7,7 +7,12 @@
     <title>Резюме | Смирнова Ирина (AnalyticUnit)</title>
 </head>
 <body>
-    <!-- Элементы кастомного курсора -->
+    <!-- ИНДИКАТОР ПРОКРУТКИ -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- КАСТОМНЫЙ КУРСОР -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
@@ -74,21 +79,21 @@
                         <div class="circular-skills-container">
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 90;">
-                                    <svg><circle cx="50" cy="50" r="45"></circle><circle cx="50" cy="50" r="45" class="percent-fill"></circle></svg>
+                                    <svg><circle cx="55" cy="55" r="50"></circle><circle cx="55" cy="55" r="50" class="percent-fill"></circle></svg>
                                     <div class="number"><h3>90<span>%</span></h3></div>
                                 </div>
                                 <p>BI & Viz</p>
                             </div>
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 85;">
-                                    <svg><circle cx="50" cy="50" r="45"></circle><circle cx="50" cy="50" r="45" class="percent-fill"></circle></svg>
+                                    <svg><circle cx="55" cy="55" r="50"></circle><circle cx="55" cy="55" r="50" class="percent-fill"></circle></svg>
                                     <div class="number"><h3>85<span>%</span></h3></div>
                                 </div>
                                 <p>SQL</p>
                             </div>
                             <div class="skill-circle-item">
                                 <div class="progress-circle" style="--percent: 70;">
-                                    <svg><circle cx="50" cy="50" r="45"></circle><circle cx="50" cy="50" r="45" class="percent-fill"></circle></svg>
+                                    <svg><circle cx="55" cy="55" r="50"></circle><circle cx="55" cy="55" r="50" class="percent-fill"></circle></svg>
                                     <div class="number"><h3>70<span>%</span></h3></div>
                                 </div>
                                 <p>Python</p>
@@ -128,7 +133,6 @@
         </section>
     </div>
 
-    <!-- Скрипт для вкладок и курсора -->
     <script>
         // Логика вкладок
         function openTab(evt, tabName) {
@@ -144,20 +148,27 @@
         // Логика кастомного курсора
         const dot = document.querySelector('.cursor-dot');
         const outline = document.querySelector('.cursor-outline');
-
         window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            dot.style.left = `${posX}px`;
-            dot.style.top = `${posY}px`;
-            outline.style.left = `${posX}px`;
-            outline.style.top = `${posY}px`;
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
+            outline.style.left = e.clientX + 'px';
+            outline.style.top = e.clientY + 'px';
         });
 
         const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card');
         links.forEach(link => {
             link.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
             link.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
+        });
+
+        // Логика индикатора прокрутки
+        const progressBar = document.querySelector('.scroll-progress-bar');
+        const scrollContainer = document.querySelector('.scroll-container');
+        scrollContainer.addEventListener('scroll', () => {
+            const winScroll = scrollContainer.scrollTop;
+            const height = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
         });
     </script>
 </body>
