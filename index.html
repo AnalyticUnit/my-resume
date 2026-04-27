@@ -102,11 +102,13 @@
         <section class="page-section" id="page2">
             <div class="resume-wrapper second-page">
                 <div class="skills-detailed">
+                    <!-- ЛЕВАЯ КОЛОНКА (HARD SKILLS) -->
                     <div class="skills-column">
                         <h3 class="accent-title-page">Hard Skills & Expertise</h3>
                         <div class="detail-card"><strong>BI Matrix:</strong> Apache Superset, Sankey, Heatmaps.</div>
                         <div class="detail-card"><strong>Engineering:</strong> ТЗ для SCADA, АСКУЭ, ГОСТ.</div>
                     </div>
+                    <!-- ПРАВАЯ КОЛОНКА (SOFT SKILLS) -->
                     <div class="skills-column">
                         <h3 class="accent-title-page">Soft Skills</h3>
                         <div class="soft-card"><strong>Self-management:</strong> Высокая автономность и дисциплина.</div>
@@ -171,7 +173,7 @@
             outline.style.left = e.clientX + 'px'; outline.style.top = e.clientY + 'px';
         });
 
-        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card, .nav-dot, .nav-arrow');
+        const links = document.querySelectorAll('a, button, .photo, .tab-btn, .detail-card, .soft-card, .nav-dot, .nav-arrow, .contact-list li');
         links.forEach(el => {
             el.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
