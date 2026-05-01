@@ -262,7 +262,7 @@ html, body {
 .portfolio-desc {
     color: white; 
     line-height: 1.6; 
-    margin-bottom: 20px; 
+    margin-bottom: 10px; 
     font-size: 16px; 
     font-weight: 500;
 }
@@ -288,11 +288,6 @@ html, body {
     transition: transform 0.5s ease;
 }
 
-/* Легкий эффект при наведении (опционально) */
-.portfolio-image:hover {
-    transform: scale(1.02);
-    border-color: var(--accent);
-}
 
 /* ПЯТАЯ СТРАНИЦА (МАНИФЕСТ) — ФИНАЛЬНЫЙ БАЛАНС */
 .manifesto-grid { display: flex; flex-direction: column; gap: 15px; width: 100%; }
