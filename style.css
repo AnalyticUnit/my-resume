@@ -266,7 +266,7 @@ html, body {
     align-items: center;
     overflow: hidden;
     padding-bottom: 5px; /* Отступ от картинки до кнопки внизу */
-     margin-top: 10px !important; /* Увеличил число, чтобы эффект был заметен сразу */
+     margin-top: 20px !important; /* Увеличил число, чтобы эффект был заметен сразу */
     display: block !important;    /* Отключаем flex, так как он удерживает картинку в центре */
     position: relative !important; /* Даем браузеру понять, что элемент можно двигать */
 }
