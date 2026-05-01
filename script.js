@@ -127,44 +127,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // УНИВЕРСАЛЬНЫЙ ЗУМ ДЛЯ ГАЛЕРЕИ
 document.addEventListener('click', (e) => {
-    // Проверяем, что кликнули именно по картинке из портфолио
-    if (e.target.classList.contains('portfolio-image')) {
-        // 1. Создаем полноэкранное затемнение
+    // 1. ОТКРЫТИЕ: Проверяем, что кликнули по картинке в галерее (у которой НЕТ класса active-zoom)
+    if (e.target.classList.contains('portfolio-image') && !e.target.classList.contains('active-zoom')) {
+        
         const full = document.createElement('div');
-        full.className = 'fullscreen-overlay-active'; // Можно добавить класс для стилей
         full.style.cssText = `
-            position: fixed; 
-            top: 0; left: 0; 
-            width: 100%; height: 100%; 
-            background: rgba(15, 23, 42, 0.95); 
-            z-index: 100000; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            cursor: zoom-out;
-            animation: fadeIn 0.3s ease;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(15, 23, 42, 0.95); z-index: 100000; 
+            display: flex; align-items: center; justify-content: center; 
+            cursor: zoom-out; opacity: 0; transition: opacity 0.3s ease;
         `;
         
-        // 2. Клонируем картинку
         const clone = e.target.cloneNode();
+        clone.classList.add('active-zoom'); // Добавляем метку, чтобы не открывать её повторно
         clone.style.cssText = `
-            max-width: 95%; 
-            max-height: 95%; 
-            object-fit: contain; 
-            border: 1px solid #6cccf5; 
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            border-radius: 4px;
+            max-width: 95%; max-height: 95%; object-fit: contain; 
+            border: 1px solid #6cccf5; box-shadow: 0 0 50px rgba(0,0,0,0.5);
         `;
         
-        // 3. Собираем воедино
         full.appendChild(clone);
         document.body.appendChild(full);
+        
+        // Плавное появление
+        setTimeout(() => full.style.opacity = '1', 10);
 
-        // 4. ЗАКРЫТИЕ: вешаем событие на весь оверлей
-        // Клик по любой точке (включая картинку) удалит оверлей
+        // 2. ЗАКРЫТИЕ: Клик по всему оверлею
         full.onclick = function() {
             full.style.opacity = '0';
-            setTimeout(() => full.remove(), 300); // Удаляем после завершения анимации
+            setTimeout(() => full.remove(), 300);
         };
     }
 });
