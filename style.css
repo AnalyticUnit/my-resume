@@ -319,36 +319,63 @@ html, body {
 
 
 
+/* 1. Убираем лишнее пространство у текста и заголовка на 4 странице */
+#page4 .accent-title-page {
+    margin-bottom: 10px !important; /* Было 25px */
+}
 
+#page4 .portfolio-desc {
+    margin-bottom: 10px !important; /* Уменьшаем максимально */
+}
 
-
-/* Слой поверх всего сайта */
-.fullscreen-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(15, 23, 42, 0.95); /* Темный фон */
-    display: none; /* Скрыт по умолчанию */
+/* 2. "Вытягиваем" контейнер с картинкой вверх */
+.image-display-container {
+    margin-top: -20px !important; /* ОТРИЦАТЕЛЬНЫЙ ОТСТУП: тянет картинку вверх */
+    display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 20000; /* Выше курсора и навигации */
+    align-items: flex-start; /* Прижимает картинку к верхнему краю своего блока */
+    height: 100%; 
+}
+
+/* 3. Убедимся, что сама картинка не имеет внутренних ограничений */
+.portfolio-image {
+    display: block;
+    margin: 0 auto;
+    /* Убедись, что анимация (scale) отключена, как ты просила ранее */
+}
+
+
+
+
+
+
+
+
+/* Состояние картинки при клике (на весь экран) */
+.portfolio-image.full-view {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    width: 90vw !important;
+    height: 90vh !important;
+    object-fit: contain !important;
+    z-index: 100000 !important; /* Поверх всего */
+    background: rgba(15, 23, 42, 0.95);
+    padding: 20px;
+    border-radius: 0;
     cursor: zoom-out;
 }
 
-/* Картинка внутри слоя */
-.fullscreen-overlay img {
-    max-width: 95%;
-    max-height: 95%;
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+/* Затемнение фона при увеличении */
+body.modal-open::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
 }
-
-/* Курсор для самой маленькой картинки в контенте */
-.portfolio-image {
-    cursor: zoom-in;
-}
-
 
 
 
