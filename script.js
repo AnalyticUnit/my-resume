@@ -74,6 +74,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const dot = document.querySelector('.cursor-dot');
     const outline = document.querySelector('.cursor-outline');
 
+
+
+
+
+
+    
+
+const img = document.querySelector('.portfolio-image');
+
+if (img) {
+    img.addEventListener('click', function() {
+        this.classList.toggle('full-view');
+        document.body.classList.toggle('modal-open');
+    });
+}
+
+
+
+
+
+
+    
+
+    
     // ДВИЖЕНИЕ КУРСОРA
     window.addEventListener('mousemove', (e) => {
         if (dot && outline) {
@@ -136,15 +160,6 @@ if (portfolioImg) {
 
 
 
-// Добавь это внутрь document.addEventListener('DOMContentLoaded', ...
-const img = document.querySelector('.portfolio-image');
-
-if (img) {
-    img.addEventListener('click', function() {
-        this.classList.toggle('full-view');
-        document.body.classList.toggle('modal-open');
-    });
-}
 
 // Закрытие при клике в любое место оверлея
 overlay.addEventListener('click', () => {
