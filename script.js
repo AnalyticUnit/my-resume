@@ -117,6 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
 // Логика увеличения картинки
 const portfolioImg = document.querySelector('.portfolio-image');
 const overlay = document.getElementById('imageOverlay');
@@ -126,6 +130,19 @@ if (portfolioImg) {
     portfolioImg.addEventListener('click', () => {
         overlayImg.src = portfolioImg.src; // Копируем путь к картинке
         overlay.style.display = 'flex';   // Показываем слой
+    });
+}
+
+
+
+
+// Добавь это внутрь document.addEventListener('DOMContentLoaded', ...
+const img = document.querySelector('.portfolio-image');
+
+if (img) {
+    img.addEventListener('click', function() {
+        this.classList.toggle('full-view');
+        document.body.classList.toggle('modal-open');
     });
 }
 
