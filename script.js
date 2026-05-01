@@ -75,28 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const outline = document.querySelector('.cursor-outline');
 
 
-
-
-
-
-    
-
-const img = document.querySelector('.portfolio-image');
-
-if (img) {
-    img.addEventListener('click', function() {
-        this.classList.toggle('full-view');
-        document.body.classList.toggle('modal-open');
-    });
-}
-
-
-
-
-
-
-    
-
     
     // ДВИЖЕНИЕ КУРСОРA
     window.addEventListener('mousemove', (e) => {
@@ -139,23 +117,6 @@ if (img) {
     document.addEventListener('mouseout', (e) => { if (e.target.closest(selectors)) outline?.classList.remove('cursor-hover'); });
 });
 
-
-
-
-
-
-
-// Логика увеличения картинки
-const portfolioImg = document.querySelector('.portfolio-image');
-const overlay = document.getElementById('imageOverlay');
-const overlayImg = overlay.querySelector('img');
-
-if (portfolioImg) {
-    portfolioImg.addEventListener('click', () => {
-        overlayImg.src = portfolioImg.src; // Копируем путь к картинке
-        overlay.style.display = 'flex';   // Показываем слой
-    });
-}
 
 
 
