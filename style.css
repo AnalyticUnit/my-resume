@@ -1,6 +1,6 @@
 :root {
     --primary: #ffffff;
-    --accent: #38bdf8;
+    --accent: #6cccf5;
     --bg-site: #0f172a;
     --white: #1e293b;
 }
@@ -11,7 +11,7 @@ html, body {
     margin: 0; padding: 0; height: 100%; 
     background: var(--bg-site); color: var(--primary); 
     font-family: 'Segoe UI', Arial, sans-serif;
-    overflow: hidden; /* Скролл управляется контейнером через JS */
+    overflow: hidden; 
 }
 
 /* ИНДИКАТОР И КУРСОР */
@@ -20,51 +20,48 @@ html, body {
 
 @media (min-width: 1000px) {
     html, body, a, button { cursor: none !important; }
-    .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; }
+    .cursor-dot, .cursor-outline { 
+        position: fixed; top: 0; left: 0; 
+        transform: translate(-50%, -50%); 
+        border-radius: 50%; z-index: 9999; 
+        pointer-events: none !important; 
+    }
     .cursor-dot { width: 6px; height: 6px; background: var(--accent); }
-    .cursor-outline { width: 18px; height: 18px; border: 1px solid var(--accent); background: rgba(56, 189, 248, 0.05); }
-    .cursor-hover { transform: translate(-50%, -50%) scale(1.4); background: rgba(56, 189, 248, 0.2); }
+    .cursor-outline { 
+        width: 18px; height: 18px; 
+        border: 1px solid var(--accent); 
+        background: rgba(56, 189, 248, 0.05); 
+        transition: transform 0.15s ease-out, background 0.15s ease-out; 
+    }
+    .cursor-hover { 
+        transform: translate(-50%, -50%) scale(1.6) !important; 
+        background: rgba(56, 189, 248, 0.2) !important; 
+    }
 }
 
-/* КОНТЕЙНЕРЫ */
-.scroll-container { 
-    height: 100vh; 
-    overflow-y: hidden; 
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
-}
-.scroll-container::-webkit-scrollbar { display: none; }
-
+/* СТРУКТУРА SPA */
 .page-section { 
-    height: 100vh; 
-    width: 100%;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 20px; 
-    position: relative;
+    height: 100vh; width: 100%;
+    display: flex; justify-content: center; align-items: center; 
+    padding: 20px; position: relative;
 }
 
-/* ОБЕРТКА РЕЗЮМЕ - ИСПРАВЛЕНА ВЫСОТА */
 .resume-wrapper { 
-    max-width: 1200px; 
-    width: 100%; 
-    min-height: 800px; /* Было 800px фиксированно */
-    height: 85vh; /* Оптимально для большинства экранов */
-    position: relative; 
-    background: var(--white); 
-    display: grid; 
-    grid-template-columns: 350px 1fr; 
-    border-radius: 24px; 
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5); 
-    overflow: hidden; 
-    border: 1px solid rgba(255,255,255,0.05); 
+    max-width: 1200px; width: 100%; 
+    height: 92vh; min-height: 700px;
+    position: relative; background: var(--white); 
+    display: grid; grid-template-columns: 350px 1fr; 
+    border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); 
+    overflow: hidden; border: 1px solid rgba(255,255,255,0.05); 
 }
 
-.second-page { display: block; padding: 60px; }
+.scroll-container { height: 100%; overflow-y: hidden; scrollbar-width: none; }
+.scroll-container::-webkit-scrollbar { display: none; }
+.page-section-inner { height: 100%; width: 100%; display: flex; }
 
 /* САЙДБАР */
-.sidebar { padding: 50px 40px; border-right: 1px solid rgba(255,255,255,0.05); text-align: center; background: #111827; }
+.sidebar { padding: 50px 40px; border-right: 1px solid rgba(255,255,255,0.05); text-align: center; background: #111827; height: 100%; }
+.sidebar h1 { font-size: 26px; margin: 15px 0; }
 .photo-container { position: relative; width: 180px; height: 180px; margin: 0 auto 25px; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; border-radius: 50%; }
 .photo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent); position: absolute; top: 0; left: 0; transition: opacity 0.5s ease; box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
 .gif-photo { opacity: 0; }
@@ -74,32 +71,66 @@ html, body {
 
 .tagline { color: var(--accent); font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1.2px; line-height: 1.4; margin-top: 15px; }
 .contact-list { list-style: none; padding: 0; text-align: left; margin: 30px auto; max-width: 250px; font-size: 15px; }
-.contact-list li { margin-bottom: 12px; color: #ffffff; transition: 0.3s ease; }
+.contact-list li {     display: flex;
+    align-items: center; /* Центрирует иконку и текст по вертикали */
+    gap: 12px;           /* Создает ровное расстояние между иконкой и текстом */
+    margin-bottom: 12px;
+    color: #ffffff;
+    transition: transform 0.3s ease; /* Твой эффект сдвига */}
+
+.contact-list li:hover {
+    transform: translateX(6px); /* Легкий сдвиг вправо на 6 пикселей */
+}
 .contact-list a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--accent); }
-.mini-tags span { background: rgba(56, 189, 248, 0.05); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.3); padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; margin: 3px; display: inline-block; }
+.mini-tags span {
+    background: rgba(56, 189, 248, 0.05);
+    color: var(--accent);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 3px;
+    display: inline-block;
+    /* Добавляем плавность для всех изменений */
+    transition: all 0.3s ease !important; 
+}
+
+/* Эффект при наведении (заливка синим) */
+.mini-tags span:hover {
+    background: var(--accent) !important; /* Плотная синяя заливка */
+    color: #0f172a !important;            /* Темный текст для читаемости на синем */
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 15px rgba(108, 204, 245, 0.4); /* Мягкое свечение */
+    transform: translateY(-2px);          /* Легкий подъем вверх */
+}
 
 /* КОНТЕНТ */
-.main-content { padding: 40px 60px; position: relative; background: #1e293b; display: flex; flex-direction: column; overflow: hidden; }
+.main-content { padding: 40px 60px; width: 100%; height: 100%; position: relative; background: #1e293b; display: flex; flex-direction: column; overflow: hidden; }
 .tabs-nav { display: inline-flex; gap: 8px; padding: 6px; background: #0f172a; border-radius: 16px; margin-bottom: 25px; align-self: flex-start; flex-wrap: wrap; z-index: 10; }
 .tab-btn { border: none; padding: 10px 20px; cursor: pointer; border-radius: 12px; font-weight: 600; color: #94a3b8; background: none; transition: 0.3s; font-size: 14px; }
 .tab-btn.active { background: var(--accent); color: #0f172a; font-weight: 700; }
 .tab-content { display: none; width: 100%; position: relative; }
 .active-content { display: block !important; }
 .accent-title { color: var(--accent) !important; font-weight: 700; }
-
-/* ЛОГИЧЕСКАЯ СЕТКА */
+/* ЛОГИЧЕСКАЯ СЕТКА И КАРТОЧКИ — ЭФФЕКТЫ */
 .logic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; position: relative; z-index: 1; }
-.logic-box, .achievement-card, .info-box, .stat-item { 
+.logic-box, .achievement-card, .info-box, .stat-item, .manifesto-card, .hobby-section { 
     padding: 15px; border-radius: 12px; background: rgba(15, 23, 42, 0.4); 
-    border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; 
+    border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
 }
-.logic-box:hover, .achievement-card:hover, .info-box:hover, .stat-item:hover {
-    border: 1px solid var(--accent) !important; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+
+/* ЕДИНЫЙ ЭФФЕКТ НАВЕДЕНИЯ ДЛЯ ВСЕХ БЛОКОВ (ОЖИВЛЕНИЕ) */
+.logic-box:hover, .achievement-card:hover, .info-box:hover, .stat-item:hover, .manifesto-card:hover, .hobby-section:hover {
+    border-color: var(--accent) !important; 
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.15) !important;
+    transform: translateY(-5px);
 }
-.logic-box h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px; }
+
+.logic-box h4 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px; }
 .logic-box.problem h4 { color: #f87171; }
 .logic-box.solution h4 { color: #4ade80; }
-.logic-box p { font-size: 14px; line-height: 1.5; color: #cbd5e1; margin: 0; }
+.logic-box p { font-size: 15px; line-height: 1.5; color: #cbd5e1; margin: 0; }
 
 .info-box-container { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; position: relative; z-index: 1; }
 .info-box { font-size: 15px; color: #cbd5e1; line-height: 1.5; border-left: 3px solid var(--accent); padding-left: 15px; }
@@ -122,39 +153,39 @@ html, body {
 .stats-container { display: flex; justify-content: space-between; gap: 15px; margin-top: 20px; position: relative; z-index: 1; width: 100%; }
 .stat-item { background: rgba(15, 23, 42, 0.6); flex: 1; text-align: center; }
 .stat-num { display: block; font-size: 24px; font-weight: 800; color: var(--accent); margin-bottom: 2px; }
-.stat-text { font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
+.stat-text { font-size: 12px; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; }
 
-/* ТАЙМЛАЙН ОПЫТА И ОБРАЗОВАНИЯ */
+/* ТАЙМЛАЙН */
 .timeline { position: relative; padding-left: 25px; margin-top: 5px; }
 .timeline::before { content: ''; position: absolute; left: 0; top: 5px; bottom: 5px; width: 2px; background: linear-gradient(to bottom, var(--accent), rgba(56, 189, 248, 0.1)); }
-
-.timeline-item { position: relative; padding-bottom: 25px; transition: 0.3s; }
-.timeline-dot { 
-    position: absolute; left: -29px; top: 5px; width: 10px; height: 10px; 
-    background: var(--bg-site); border: 2px solid var(--accent); 
-    border-radius: 50%; z-index: 2; transition: all 0.3s ease; 
-}
-.timeline-item:hover .timeline-dot { 
-    background: #ffffff; border-color: #ffffff; 
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); transform: scale(1.3); 
-}
-
+.timeline-item { position: relative; padding-bottom: 5px; transition: 0.3s; }
+.timeline-dot { position: absolute; left: -29px; top: 5px; width: 10px; height: 10px; background: var(--bg-site); border: 2px solid var(--accent); border-radius: 50%; z-index: 2; transition: all 0.3s ease; }
+.timeline-item:hover .timeline-dot { background: #ffffff; border-color: #ffffff; box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); transform: scale(1.3); }
 .timeline-content h3 { font-size: 16px; margin: 0; line-height: 1.3; }
 .timeline-date { display: block; font-size: 12px; color: #94a3b8; font-weight: 500; margin-top: 2px; }
 .timeline-desc { color: #cbd5e1; font-size: 14.5px; line-height: 1.45; margin-top: 6px; }
 
-/* СЕТКА ДОСТИЖЕНИЙ */
+/* СЕТКА ДОСТИЖЕНИЙ (ШРИФТЫ ИЗ НАБОРА 2) */
 .achievements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 5px; }
-.achievement-card strong { color: var(--accent); display: block; margin-bottom: 6px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
-.achievement-card p { color: #cbd5e1; font-size: 14px; line-height: 1.45; margin: 0; }
+.achievement-card strong { color: var(--accent); display: block; margin-bottom: 6px; font-size: 16.33px; text-transform: uppercase; letter-spacing: 0.5px; }
+.achievement-card p { color: #cbd5e1; font-size: 15.33px; line-height: 1.45; margin: 0; }
 .achievement-card.wide { grid-column: span 2; }
 
 /* НАВЫКИ */
-.skills-bars-container { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 45px; margin-top: 10px; width: 100%; }
+.skills-bars-container { display: grid; grid-template-columns: 1fr; /* Изменено с 1fr 1fr на 1fr */; gap: 22px 45px; margin-top: 10px; width: 100%; }
 .skill-bar-item { display: flex; flex-direction: column; gap: 8px; }
 .skill-info { display: flex; justify-content: space-between; align-items: center; font-size: 15px; font-weight: 600; color: var(--primary); }
-.skill-progress-bg { width: 100%; height: 8px; background: rgba(255, 255, 255, 0.05); border-radius: 4px; overflow: hidden; position: relative; }
-.skill-progress-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--accent); width: 0%; border-radius: 4px; transition: width 1.5s cubic-bezier(0.1, 0.42, 0.41, 1); box-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
+.skill-progress-bg { width: 100%; height: 5px; background: rgba(255, 255, 255, 0.05); border-radius: 4px; overflow: hidden; position: relative; }
+/* Шкалы навыков (обновлено) */
+.skill-progress-fill {
+    position: absolute;
+    top: 0; left: 0; height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    width: 0%; /* Начало с нуля для анимации */
+    box-shadow: 0 0 10px rgba(108, 204, 245, 0.3);
+   transition: width 3.0s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
 .special-skill-center { margin-top: 35px; display: flex; justify-content: center; width: 100%; }
 .skill-circle-item { text-align: center; width: 140px; display: flex; flex-direction: column; align-items: center; }
@@ -170,7 +201,8 @@ html, body {
 .nav-dot { width: 10px; height: 10px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; cursor: pointer; transition: 0.3s; }
 .nav-dot.active { background: var(--accent); transform: scale(1.5); }
 .nav-arrow { font-size: 22px; color: var(--accent); cursor: pointer; font-weight: bold; }
-.scroll-hint-text { position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); font-size: 13px; font-weight: 700; color: var(--accent); text-transform: uppercase; animation: bounceHint 2s infinite; cursor: pointer; z-index: 20; }
+.scroll-hint-text { position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); font-size: 13px; font-weight: 700; color: var(--accent); text-transform: uppercase; animation: bounceHint 2s infinite; cursor: pointer; z-index: 20; white-space: nowrap; }
+
 @keyframes bounceHint { 0%, 100% { transform: translate(-50%, 0); opacity: 0.8; } 50% { transform: translate(-50%, -10px); opacity: 0.4; } }
 
 /* ВТОРАЯ СТРАНИЦА */
@@ -179,36 +211,115 @@ html, body {
 .detail-card, .soft-card { 
     background: #0f172a; padding: 22px; border-radius: 15px; margin-bottom: 15px; 
     border-left: 6px solid var(--accent); color: #cbd5e1; font-size: 15.5px; line-height: 1.5;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-left 0.3s ease; 
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
-.detail-card:hover, .soft-card:hover { transform: translateX(15px); }
+.detail-card:hover, .soft-card:hover { transform: translateX(15px); border-left-width: 10px; }
 
-.has-tooltip::after { content: attr(data-tooltip); position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%) translateY(10px); width: 300px; padding: 18px; background: #111827; color: #ffffff; font-size: 14px; line-height: 1.5; text-align: center; border-radius: 12px; border: 1px solid var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; }
-.has-tooltip:hover::after, .has-tooltip:hover::before { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.has-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 300px;
+    padding: 18px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 2000;
+
+    /* КРИТИЧЕСКИЕ ПРАВКИ: */
+    opacity: 0;
+    visibility: hidden;      /* Полностью исключает элемент из дерева видимости */
+    pointer-events: none;    /* Мышь "пролетает" сквозь подсказку, не замечая её */
+    
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Состояние при наведении */
+.has-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* ТРЕТЬЯ СТРАНИЦА */
+/* Контейнер для центрирования изображения */
+.image-display-container {
+    flex: 1; /* Занимает всё свободное место в main-content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px 0;
+}
+.portfolio-desc {
+    color: white; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+    font-size: 16px; 
+    font-weight: 500;
+}
+
+/* Настраиваем контейнер для картинки, чтобы он делил место с текстом */
+.image-display-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-bottom: 20px; /* Отступ от картинки до кнопки внизу */
+}
+
+/* Стили самого изображения */
+.portfolio-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Картинка впишется целиком без обрезки */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease;
+}
+
+/* Легкий эффект при наведении (опционально) */
+.portfolio-image:hover {
+    transform: scale(1.02);
+    border-color: var(--accent);
+}
+
+/* ПЯТАЯ СТРАНИЦА (МАНИФЕСТ) — ФИНАЛЬНЫЙ БАЛАНС */
+.manifesto-grid { display: flex; flex-direction: column; gap: 15px; width: 100%; }
+.highlight-text { font-size: 18px; color: #f8fafc; line-height: 1.5; max-width: 850px; border-left: 4px solid var(--accent); padding-left: 20px; margin: 10px 0; }
+.manifesto-body { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+.manifesto-card { 
+    display: flex; flex-direction: column; 
+    gap: 15px; /* Расстояние между элементами внутри */
+    padding: 22px 25px; min-height: 200px; 
+}
+
+.manifesto-card h3 { color: var(--accent); margin: 0; font-size: 15px;}
+.manifesto-card p { font-size: 15.5px; line-height: 1.5; color: #cbd5e1; margin: 0; }
+
+.goal-text { 
+    margin-top: auto; 
+    padding: 10px 12px; background: rgba(56, 189, 248, 0.1); border-radius: 8px; 
+    color: var(--accent); font-weight: 600; font-size: 14px; border-left: 3px solid var(--accent); display: table; line-height: 1.3; 
+}
+
+.hobby-section { background: rgba(17, 24, 39, 0.8); padding: 18px 25px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.1); }
+.hobby-section h3 { font-size: 15px; margin-bottom: 8px; color: var(--accent); }
+.hobby-text { font-size: 15.5px; line-height: 1.5; color: #cbd5e1; }
 
 .fade-in { animation: fadeIn 0.4s ease-out forwards; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-/* МАНИФЕСТ СТРАНИЦА 5 */
-.manifesto-page { display: flex; flex-direction: column; justify-content: center; padding: 50px 70px; }
-.manifesto-grid { display: flex; flex-direction: column; gap: 25px; width: 100%; }
-.highlight-text { font-size: 20px; color: #f8fafc; line-height: 1.6; max-width: 850px; border-left: 4px solid var(--accent); padding-left: 20px; margin: 15px 0; }
-.manifesto-body { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.manifesto-card { 
-    background: rgba(15, 23, 42, 0.7); padding: 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); 
-    display: flex; flex-direction: column; min-height: 240px; transition: all 0.3s ease; 
-}
-.manifesto-card h3 { color: var(--accent); margin: 0 0 15px 0; font-size: 18px; text-transform: uppercase; letter-spacing: 1.2px; }
-.manifesto-card p { font-size: 16px; line-height: 1.6; color: #cbd5e1; margin: 0; }
-
-.goal-text { 
-    margin-top: auto; padding: 12px 15px; background: rgba(56, 189, 248, 0.1); border-radius: 8px; 
-    color: var(--accent); font-weight: 600; font-size: 15px; border-left: 3px solid var(--accent); display: table; line-height: 1.3; 
-}
-
-.hobby-section { background: rgba(17, 24, 39, 0.8); padding: 25px 30px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.1); transition: all 0.3s ease; }
-.hobby-section:hover, .manifesto-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 0 20px rgba(56, 189, 248, 0.15); }
-.hobby-text { font-size: 16.5px; line-height: 1.6; color: #cbd5e1; }
 
 @media (max-width: 1250px) { .scroll-nav { display: none; } }
 @media (max-width: 1000px) { .resume-wrapper { grid-template-columns: 1fr; height: auto; } .page-section { height: auto; } .scroll-container { overflow-y: auto; } .manifesto-body { grid-template-columns: 1fr; } }
