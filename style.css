@@ -321,26 +321,6 @@ html, body {
 
 
 
-#page4 .portfolio-desc {
-    margin-bottom: 20px !important; /* Уменьшаем максимально */
-}
-
-/* 2. "Вытягиваем" контейнер с картинкой вверх */
-.image-display-container {
-    margin-top: -10px !important; /* ОТРИЦАТЕЛЬНЫЙ ОТСТУП: тянет картинку вверх */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Прижимает картинку к верхнему краю своего блока */
-    height: 100%; 
-}
-
-/* 3. Убедимся, что сама картинка не имеет внутренних ограничений */
-.portfolio-image {
-    display: block;
-    margin: 0 auto;
-    /* Убедись, что анимация (scale) отключена, как ты просила ранее */
-}
-
 
 
 
