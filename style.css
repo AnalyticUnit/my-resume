@@ -287,7 +287,7 @@ html, body {
     transition: transform 0.5s ease;
 }
 .portfolio-image:hover {
-    transform: scale(1.5);
+    transform: scale(1.5)
     border-color: var(--accent);
 } 
 
@@ -319,13 +319,10 @@ html, body {
 
 
 
-/* 1. Убираем лишнее пространство у текста и заголовка на 4 странице */
-#page4 .accent-title-page {
-    margin-bottom: 15px !important; /* Было 25px */
-}
+
 
 #page4 .portfolio-desc {
-    margin-bottom: 15px !important; /* Уменьшаем максимально */
+    margin-bottom: 20px !important; /* Уменьшаем максимально */
 }
 
 /* 2. "Вытягиваем" контейнер с картинкой вверх */
