@@ -442,20 +442,20 @@ html, body {
 
 
 /* Поднимаем всё содержимое 4-й страницы */
-#page4 .accent-title-page {
+#page3 .accent-title-page {
     margin-top: -30px !important; /* Вытягивает заголовок, а за ним и всё остальное */
     margin-bottom: 10px !important; 
 }
 
 /* Дополнительно уплотняем текст под заголовком */
-#page4 .portfolio-desc {
+#page3 .portfolio-desc {
     margin-top: 0 !important;
     margin-bottom: 10px !important;
     padding-top: 0 !important;
 }
 
 /* Прижимаем галерею вплотную к тексту */
-#page4 .gallery-grid {
+#page3 .gallery-grid {
     margin-top: 0 !important;
     padding-top: 0 !important;
 }
