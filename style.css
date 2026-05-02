@@ -442,26 +442,27 @@ html, body {
 
 
 
-.gallery-item {
-    max-height: 180px; /* Установи лимит высоты (подбери число под себя) */
-}
-
-
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px; /* Сделаем зазоры чуть выразительнее */
     
-    /* 1. Вместо 1fr ставим auto, чтобы строки не растягивались */
-    grid-template-rows: auto auto; 
+    /* МАГИЯ ЦЕНТРИРОВАНИЯ: */
+    margin-top: auto !important;
+    margin-bottom: auto !important;
     
-    /* 2. Настраиваем конкретный зазор между рядами (вертикальный) */
-    row-gap: 15px; 
-    /* Зазор между колонками (горизонтальный) */
-    column-gap: 15px; 
-    
-    /* 3. Убираем flex: 1, который заставляет сетку занимать всё место до низа */
-    flex: none !important; 
-    margin-top: -5px !important;
+    /* Ограничиваем общую ширину, чтобы сетка не выглядела слишком растянутой */
+    width: 100%;
+    max-width: 900px;
+    align-self: center; /* Центрируем саму сетку по горизонтали */
+}
+
+#page3 .main-content {
+    /* Чтобы margin: auto сработал, родителю нужен flex и 100% высоты */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .gallery-item {
