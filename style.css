@@ -445,3 +445,13 @@ html, body {
 #page4 .accent-title-page {
     margin-bottom: 10px !important; /* Уменьшили с 25px до 10px */
 }
+
+.portfolio-desc {
+    /* ... твои текущие стили (font-size: 16px и т.д.) ... */
+    margin-bottom: 15px !important; /* Уменьшили с 20px до 15px */
+}
+
+/* Если нужно еще выше, можно добавить отрицательный маржин самой галерее */
+.gallery-grid {
+    margin-top: -5px !important; 
+}
