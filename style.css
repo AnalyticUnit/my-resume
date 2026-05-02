@@ -439,6 +439,9 @@ html, body {
 
 
 #page4 .main-content {
-    padding-top: 10px !important; /* Уменьшили с 40px до 20px */
+    padding-top: 20px !important; /* Уменьшили с 40px до 20px */
 }
 
+#page4 .accent-title-page {
+    margin-bottom: 10px !important; /* Уменьшили с 25px до 10px */
+}
