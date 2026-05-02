@@ -440,33 +440,3 @@ html, body {
 
 
 
-
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto;
-    gap: 20px; /* Сделаем зазоры чуть выразительнее */
-    
-    /* МАГИЯ ЦЕНТРИРОВАНИЯ: */
-    margin-top: auto !important;
-    margin-bottom: auto !important;
-    
-    /* Ограничиваем общую ширину, чтобы сетка не выглядела слишком растянутой */
-    width: 100%;
-    max-width: 900px;
-    align-self: center; /* Центрируем саму сетку по горизонтали */
-}
-
-#page3 .main-content {
-    /* Чтобы margin: auto сработал, родителю нужен flex и 100% высоты */
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.gallery-item {
-
-    max-height: 180px; 
-
-}
