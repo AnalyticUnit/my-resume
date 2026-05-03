@@ -40,7 +40,12 @@ window.scrollToPage = function(pageIndex) {
     if (!scrollContainer) return;
     const containerHeight = scrollContainer.offsetHeight; 
     scrollContainer.scrollTo({ top: pageIndex * containerHeight, behavior: 'smooth' });
-    if (pageIndex === 0) window.openTab(null, 'about');
+    if (pageIndex === 0) {
+        window.openTab(null, 'about'); // Первая вкладка на 1 листе
+    }
+    if (pageIndex === 3) {
+        window.openTab(null, 'smartX'); // Первая вкладка на 4 листе
+    }
 };
 
 // УМНАЯ НАВИГАЦИЯ ВПЕРЕД
