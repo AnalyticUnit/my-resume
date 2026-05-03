@@ -473,7 +473,7 @@ html, body {
     display: block !important;   /* Переключаем в блочный режим для работы авто-отступов */
     width: 100% !important;      /* Контейнер обязан занять всю ширину контентной области */
     text-align: center !important; /* Выравниваем содержимое (картинку) внутри по центру */
-    margin-top: 20px !important; 
+    margin-top: 30px !important; 
     margin-bottom: 0 !important;
     flex: none !important;
 }
