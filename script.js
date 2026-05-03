@@ -55,6 +55,14 @@ window.scrollPrev = function() {
     if (currentPg > 0) window.scrollToPage(currentPg - 1);
     else if (currentPg === 0 && currentIndex > 0) window.openTab(null, tabButtons[currentIndex - 1].dataset.tab);
 };
+if (currentPg > 0) {
+    // Если на 4-й странице и есть куда двигать табы назад
+    if (currentPg === 3 && currentIndex > 0) {
+        window.openTab(null, tabButtons[currentIndex - 1].dataset.tab);
+    } else {
+        window.scrollToPage(currentPg - 1);
+    }
+}
 
 window.scrollNext = function() {
     const scrollContainer = document.querySelector('.scroll-container');
@@ -67,6 +75,9 @@ window.scrollNext = function() {
     if (currentPg === 0 && currentIndex < tabButtons.length - 1) window.openTab(null, tabButtons[currentIndex + 1].dataset.tab);
     else if (currentPg < 4) window.scrollToPage(currentPg + 1);
 };
+if ((currentPg === 0 || currentPg === 3) && currentIndex < tabButtons.length - 1) {
+    window.openTab(null, tabButtons[currentIndex + 1].dataset.tab);
+}
 
 // 2. ИНИЦИАЛИЗАЦИЯ (Курсор и события)
 document.addEventListener('DOMContentLoaded', () => {
