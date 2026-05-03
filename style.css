@@ -508,7 +508,7 @@ html, body {
 
 #page4 .typing-title {
     margin-top: 0 !important;      /* Убираем отступ над заголовком */
-    margin-bottom: 8px !important; /* Уменьшили отступ под заголовком (был ~12px) */
+    margin-bottom: 12px !important; /* Уменьшили отступ под заголовком (был ~12px) */
 }
 
 #page4 .portfolio-desc {
