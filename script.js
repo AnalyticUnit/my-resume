@@ -39,12 +39,20 @@ window.scrollToPage = function(pageIndex) {
     const scrollContainer = document.querySelector('.scroll-container');
     if (!scrollContainer) return;
     const containerHeight = scrollContainer.offsetHeight; 
-    scrollContainer.scrollTo({ top: pageIndex * containerHeight, behavior: 'smooth' });
+    
+    scrollContainer.scrollTo({ 
+        top: pageIndex * containerHeight, 
+        behavior: 'smooth' 
+    });
+
+    // ОБНОВЛЕННАЯ ЛОГИКА АВТООТКРЫТИЯ:
     if (pageIndex === 0) {
         window.openTab(null, 'about'); // Первая вкладка на 1 листе
     }
-    if (pageIndex === 3) {
-        window.openTab(null, 'smartX'); // Первая вкладка на 4 листе
+    
+    // Раньше здесь было pageIndex === 3, теперь это 2 (так как страница стала третьей)
+    if (pageIndex === 2) {
+        window.openTab(null, 'smartX'); // Первая вкладка на странице с кейсами (R&D)
     }
 };
 
