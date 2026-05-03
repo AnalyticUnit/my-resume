@@ -486,3 +486,32 @@ html, body {
     border-radius: 8px;
     cursor: zoom-in;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#page4 .tabs-nav {
+    margin-bottom: 5px !important; /* Уменьшили с 25px до 5px */
+}
+
+#page4 .typing-title {
+    margin-top: 0 !important;      /* Убираем отступ над заголовком */
+    margin-bottom: 5px !important; /* Уменьшили отступ под заголовком (был ~12px) */
+}
+
+#page4 .portfolio-desc {
+    margin-top: 0 !important;      /* Убираем лишний зазор сверху */
+    margin-bottom: 15px !important; /* Настраиваем комфортный зазор до карточек ЗАДАЧА/РЕАЛИЗАЦИЯ */
+}
