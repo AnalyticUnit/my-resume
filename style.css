@@ -469,21 +469,20 @@ html, body {
     margin-bottom: 10px !important;
 }
 
-/* 3. Центрируем и поднимаем контейнер с картинкой */
 #page4 .image-display-container {
-    margin-top: 5px !important; /* Небольшой отступ от текста "Результат" */
-    flex: none !important; /* Убираем растягивание */
-    display: flex;
-    justify-content: center;    /* <--- Вот эта команда выровняет картинку по центру */
-    width: 100%;                /* Контейнер должен занимать всю ширину */
-    height: auto !important;
+    display: block !important;   /* Переключаем в блочный режим для работы авто-отступов */
+    width: 100% !important;      /* Контейнер обязан занять всю ширину контентной области */
+    text-align: center !important; /* Выравниваем содержимое (картинку) внутри по центру */
+    margin-top: 15px !important; 
+    margin-bottom: 0 !important;
+    flex: none !important;
 }
 
-/* 4. Ограничиваем размер превью картинки */
 #page4 .portfolio-image {
-    max-height: 160px !important; /* Уменьшаем высоту превью, чтобы не давило на низ */
+    display: inline-block !important; /* Позволяет свойству text-align: center сработать */
+    max-height: 160px !important;
     width: auto !important;
+    margin: 0 auto !important;   /* Дополнительная страховка центрирования */
     border-radius: 8px;
-    margin: 0 auto;
+    cursor: zoom-in;
 }
-
