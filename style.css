@@ -290,11 +290,11 @@ html, body {
 .gallery-item:hover { transform: translateY(-3px); border-color: var(--accent); }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; cursor: zoom-in !important; }
 .gallery-item:hover img { transform: scale(1.05); }/* МАНИФЕСТ */
-.manifesto-grid { display: flex; flex-direction: column; gap: 15px; width: 100%; }
+.manifesto-grid { display: flex; flex-direction: column; gap: 10px; width: 100%; }
 .highlight-text { font-size: 18px; color: #f8fafc; line-height: 1.5; max-width: 850px; border-left: 4px solid var(--accent); padding-left: 20px; margin: 10px 0; }
 .manifesto-body { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
-.manifesto-card { display: flex; flex-direction: column; gap: 15px; padding: 22px 25px; min-height: 200px; }
+.manifesto-card { display: flex; flex-direction: column; gap: 15px; padding: 22px 25px; min-height: 160px; }
 .manifesto-card h3 { color: var(--accent); margin: 0; font-size: 15px;}
 .manifesto-card p { font-size: 15.5px; line-height: 1.5; color: #cbd5e1; margin: 0; }
 
@@ -303,7 +303,7 @@ html, body {
     color: var(--accent); font-weight: 600; font-size: 14px; border-left: 3px solid var(--accent); display: table; line-height: 1.3; 
 }
 
-.hobby-section { background: rgba(17, 24, 39, 0.8); padding: 18px 25px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.1); }
+.hobby-section { background: rgba(17, 24, 39, 0.8); padding: 12px 20px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.1); }
 .hobby-section h3 { font-size: 15px; margin-bottom: 8px; color: var(--accent); }
 .hobby-text { font-size: 15.5px; line-height: 1.5; color: #cbd5e1; }
 
