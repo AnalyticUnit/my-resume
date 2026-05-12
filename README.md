@@ -1,1 +1,1 @@
-Готовое резюме доступно по [ссылке](https://github.com/matchy233/typst-chi-cv-template).
+Готовое резюме доступно по [ссылке](https://analyticunit.github.io/my-resume/)).
