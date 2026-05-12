@@ -1,1 +1,1 @@
-Готовое резюме доступно по [ссылке](https://github.com/matchy233/typst-chi-cv-template).
+Готовое резюме доступно по [ссылке](https://alicekramer616.github.io/myres/).
