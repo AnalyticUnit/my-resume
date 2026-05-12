@@ -236,7 +236,7 @@ html, body {
 @keyframes bounceHint { 0%, 100% { transform: translate(-50%, 0); opacity: 0.8; } 50% { transform: translate(-50%, -10px); opacity: 0.4; } }
 
 /* КЕЙСЫ */
-.accent-title-page { color: var(--accent); font-size: 26px; margin-bottom: 25px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+.accent-title-page { color: var(--accent); font-size: 26px; margin-bottom: 15px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
 .skills-detailed { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .detail-card, .soft-card { 
     background: #0f172a; padding: 22px; border-radius: 15px; margin-bottom: 15px; 
